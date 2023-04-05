@@ -3,26 +3,26 @@ import {
   Routes, Route, Link
 } from 'react-router-dom'
 
-// import Filter from './components/Filter'
+import SpatialLayout from './pages/Project/SpatialLayout'
+import Furnishing from './pages/Project/Furnishing'
+import Appliances from './pages/Project/Appliances'
+import Electrical from './pages/Project/Electrical'
+import ConceptBoard from './pages/Project/ConceptBoard'
+import Materials from './pages/Project/Materials'
+import TwoDCarpentryDetailDrawings from './pages/Project/TwoDCarpentryDetailDrawings'
+import ThreeDRenderings from './pages/Project/ThreeDRenderings'
 
-import SpatialLayout from './components/SpatialLayout'
-import Furnishing from './components/Furnishing'
-import Appliances from './components/Appliances'
-import Electrical from './components/Electrical'
-import ConceptBoard from './components/ConceptBoard'
-import Materials from './components/Materials'
-import TwoDCarpentryDetailDrawings from './components/TwoDCarpentryDetailDrawings'
-import ThreeDRenderings from './components/ThreeDRenderings'
 
 const App = () => {
 
   const padding = {
-      padding: 5
-    }
+    padding: 5
+  }
 
   return (
       <div>
-          <p>Project page</p>
+          <h2>Projects Page</h2>
+          {/* <h2>Landing Page</h2> */}
           <Router>
               <div>
                   <Link style={padding} to="/project/{id}/spatial-layout">Spatial Layout</Link>
