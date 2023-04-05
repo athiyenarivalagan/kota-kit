@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import {
   BrowserRouter as Router,
   Routes, Route, Link
@@ -14,11 +16,22 @@ import ThreeDRenderings from './pages/Project/ThreeDRenderings'
 
 
 const App = () => {
+  const [projects, setProjects] = useState([])
 
   const padding = {
     padding: 5
   }
 
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/projects')
+      .then(response => {
+        console.log('promise fullfilled')
+        setProjects(response.data)
+      })
+  }, [])
+
+  
   return (
       <div>
           <h2>Projects Page</h2>
