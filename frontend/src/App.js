@@ -1,11 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import './App.css'
+import 'antd/dist/reset.css'
 // import {
 //   BrowserRouter as Router,
 //   Routes, Route, Link
 // } from 'react-router-dom'
-
 
 // import SpatialLayout from './pages/Project/SpatialLayout'
 // import Furnishing from './pages/Project/Furnishing'
@@ -20,24 +21,20 @@ import axios from 'axios'
 import AppHeader from './components/common/AppHeader' 
 import SideBar from './components/SideBar'
 import ProjectMenu from './components/ProjectMenu'
+import Content from './components/Content'
 
 import { Layout } from 'antd'
 
-
 const App = () => {
   const [projects, setProjects] = useState([])
-  console.log(projects)
-  // const [contentIndex, setContentIndex] = useState(0)
+  const [contentIndex, setContentIndex] = useState(0)
   const [selectedKey, setSelectedKey] = useState("0")
+
   const changeSelectedKey = (event) => {
     const key = event.key
     setSelectedKey(key)
-    // setContentIndex(+key)
+    setContentIndex(+key)
   }
-
-  // const padding = {
-  //   padding: 5
-  // }
 
   useEffect(() => {
     axios
@@ -59,34 +56,12 @@ const App = () => {
   
   return (
       <div>
-        {/* <Layout className='mainLayout'> */}
-          {/* <Header> */}
-            <AppHeader menu={Menu} />
-          {/* </Header> */}
         <Layout>
-          {/* <Sider> */}
+            <AppHeader menu={Menu} />
+          <Layout>
             <SideBar menu={Menu} />
-          {/* </Sider> */}
-          {/* <Layout.Content className='content'>
-            {projects[contentIndex]}
-          </Layout.Content> */}
-          {/* <Layout
-            style={{
-              padding: '0 24px 24px',
-            }}
-          >
-            <Content
-              style={{
-                padding: 24,
-                margin: 0,
-                minHeight: 280,
-                background: colorBgContainer,
-              }}
-            >
-              Content
-            </Content>
-          </Layout> */}
-        {/* </Layout> */}
+            <Content projects={projects} />
+          </Layout>
         </Layout>
 
         {/* <Router>

@@ -1,19 +1,20 @@
-import { Input, Space } from 'antd'
+import { Input } from 'antd'
 const { Search } = Input
 
-const onSearch = (value) => console.log(value) // update
+// event handler to be updated
+const onSearch = (value) => console.log(value)
 
 const SearchInput = () => {
+    
     return (
-        <Space direction="vertical">
-            <Search
-                placeholder="search project ..."
-                onSearch={onSearch}
-                style={{
+        <Search
+            placeholder="input search text"
+            allowClear
+            onSearch={onSearch}
+            style={{
                 width: 600,
-                }}
-            />
-        </Space>
+            }}
+        />
     )
 }
 

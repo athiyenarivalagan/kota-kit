@@ -1,47 +1,5 @@
-/* 
-imports
--------
- */
-
- /* @import '~antd/dist/antd.css' */
-
- /*
- layout
- ------
- */
-
- .content {
-    padding: 1rem;
-  }
-
-/*
-header
-------
-*/
-
-.navbar {
-    background-color: white;
-    padding-left: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  @media (min-width: 992px) {
-    .menu {
-      display: none;
-    }
-  }
-
-  .logo {
-    height: 32px;
-    margin-left: 1rem;
-  }
-
-/*
-side-bar
---------
-*/
-
-.sidebar {
-    height: 100vh;
-    margin-right: 24px;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
   }
