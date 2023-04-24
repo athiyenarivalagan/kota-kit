@@ -1,4 +1,5 @@
 import { Layout } from "antd"
+import ProgressBar from './ProgressBar'
 
 const Content = ({ projects }) => {
 
@@ -12,6 +13,7 @@ const Content = ({ projects }) => {
                 <p>{project.address}</p>
               </div>
           ))}
+          <ProgressBar />
         </Layout.Content>
       </div>
     )
