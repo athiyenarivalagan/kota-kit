@@ -1,23 +1,23 @@
 {
     "projects": [
       {
-        "id": "Project 24567",
-        "details": "N/A",
+        "id": 24567,
+        "name": "Project 24567",
         "address": "Blk 247, Casa Spring, #04-07, Singapore 124356"
       },
       {
-        "id": "Project 54380",
-        "details": "N/A",
+        "id": 54380,
+        "name": "Project 54380",
         "address": "Blk 458, Jurong West Street 41, #06-07, Singapore 640458"
       },
       {
-        "id": "Project 94389",
-        "details": "N/A",
+        "id": 94389,
+        "name": "Project 94389",
         "address": "Blk 297, Bukit Batok Street 22, #12-60, Singapore 650297"
       },
       {
-        "id": "Project 49320",
-        "details": "N/A",
+        "id": 49320,
+        "name": "Project 49320",
         "address": "Blk 13, Fernvale Close, Seng Kang, #14-10 Singapore 797622"
       }
     ]

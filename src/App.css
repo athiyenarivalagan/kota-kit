@@ -4,32 +4,18 @@
     height: 100vh; /* occupies the full height of the browser */
     margin-right: 24px;
     text-align: center;
+    border-right: 1px solid black;
   }
-
-/* .content {
-    padding: 1rem;
-  } */
 
 /* header */
 
 .container {
-    /* justify-content: center; */
-    /* align-items: center; */
     background-color: white;
     padding-left: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    border-bottom: 1px solid black;
 }
-
-/* .drawer {
-    align-items: center;
-} */
-  
-/* @media (min-width: 992px) {
-    .menu {
-        display: none;
-    }
-} */
 
 .logo {
     align-items: center;
