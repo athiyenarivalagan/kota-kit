@@ -1,19 +1,20 @@
 import { Input } from 'antd'
 const { Search } = Input
 
-// event handler to be updated
-const onSearch = (value) => console.log(value)
 
 const SearchInput = () => {
+    const onSearch = value => console.log(value)
     
     return (
         <Search
             placeholder="input search text"
             allowClear
             onSearch={onSearch}
-            style={{
-                width: 600,
+            style={{ 
+                // width: '100%'
+                width: '600px'
             }}
+            className='custom-search'
         />
     )
 }

@@ -6,19 +6,9 @@
         "address": "Blk 247, Casa Spring, #04-07, Singapore 124356"
       },
       {
-        "id": 54380,
-        "name": "Project 54380",
-        "address": "Blk 458, Jurong West Street 41, #06-07, Singapore 640458"
-      },
-      {
-        "id": 94389,
-        "name": "Project 94389",
-        "address": "Blk 297, Bukit Batok Street 22, #12-60, Singapore 650297"
-      },
-      {
-        "id": 49320,
-        "name": "Project 49320",
-        "address": "Blk 13, Fernvale Close, Seng Kang, #14-10 Singapore 797622"
+        "id": 12345,
+        "name": "Project 12345",
+        "address": "Blk 3, Everton Park, #12-69, Singapore 080003"
       }
     ]
   }
