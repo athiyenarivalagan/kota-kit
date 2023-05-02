@@ -50,18 +50,18 @@ const App = () => {
   //   setDisplayedProject(currentProject)
   // }
 
-  useEffect(() => {
-    if (contentIndex === 0) {
-      setDisplayedProject(projects[contentIndex])
-    } else {
-      const currentProject = projects.find(
-        project => project.id === contentIndex
-      )
-      setDisplayedProject(currentProject)
-    }
-  }, [contentIndex, selectedKey, projects])
+  // useEffect(() => {
+  //   if (contentIndex === 0) {
+  //     setDisplayedProject(projects[contentIndex])
+  //   } else {
+  //     const currentProject = projects.find(
+  //       project => project.id === contentIndex
+  //     )
+  //     setDisplayedProject(currentProject)
+  //   }
+  // }, [contentIndex, selectedKey, projects])
 
-  console.log(displayedProject) // undefined
+  // console.log(displayedProject) // undefined
 
   
   return (
