@@ -4,19 +4,21 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
-import Dashboard from './routes/Dashboard';
-import Project, {loader as projectLoader} from './routes/Project';
-import App from './App'
+import Dashboard, {loader as dashboardLoader} from './routes/dashboard'
+import Project, {loader as projectLoader} from './routes/project'
+import "./index.css"
+import ErrorPage from './error-page'
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <div>This is the placeholder home page. Pls go to /project</div>
+        element: <div>This is the placeholder home page. Pls go to /project</div>,
+        errorElement: <ErrorPage />,
     },
     {
         path: "/project",
         element: <Dashboard />,
-        loader: () => ['123','456'],
+        loader: dashboardLoader,
         children: [
             {
                 path: ":projectId",
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
             }
         ]
     }
-  ]);
+  ])
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

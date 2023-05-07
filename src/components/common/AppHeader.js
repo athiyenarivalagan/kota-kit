@@ -4,18 +4,17 @@ import { useState } from 'react'
 
 import SearchInput from '../SearchInput'
 import CreateProject from '../CreateProject'
-import Notifications from '../Notifications'
-import Messages from '../Messages'
-
+// import Notifications from '../Notifications'
+// import Messages from '../Messages'
 
 const AppHeader = ({ menu }) => {
-    const[visible, setVisible] = useState(false)
+    // const[visible, setVisible] = useState(false)
 
     return (
         <Affix>
             <header className="container">
                 {/* refactor Drawer as a separate component */}
-                <Drawer 
+                {/* <Drawer 
                 title="Projects"
                 width={240}
                 placement="left"
@@ -32,21 +31,21 @@ const AppHeader = ({ menu }) => {
                         <Notifications />
                         <Messages />
                     </Space>
-                </Drawer>
+                </Drawer> */}
             
                 <Row 
                 justify="space-between"
                 align="middle"
                 style={{ maxWidth: "1400px", margin: "0 auto" }}
                 >
-                    <Col xs={2} sm={2} md={0} lg={0}>
+                    {/* <Col xs={2} sm={2} md={0} lg={0}>
                         <Button 
                             className="menu"
                             type="primary"
                             icon={<MenuOutlined />}
                             onClick={ () => setVisible(true) }
                         />
-                    </Col>
+                    </Col> */}
                     <Col xs={4} sm={4} md={5} lg={4} style={{padding: 0}}>
                         <HomeOutlined />
                         <a href='/' className='logo'>

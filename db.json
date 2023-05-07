@@ -1,14 +1,14 @@
 {
-    "projects": [
-      {
-        "id": 24567,
-        "name": "Project 24567",
-        "address": "Blk 247, Casa Spring, #04-07, Singapore 124356"
-      },
-      {
-        "id": 12345,
-        "name": "Project 12345",
-        "address": "Blk 3, Everton Park, #12-69, Singapore 080003"
-      }
-    ]
-  }
+  "projects": [
+    {
+      "id": 24567,
+      "name": "Project 24567",
+      "address": "Blk 247, Casa Spring, #04-07, Singapore 124356"
+    },
+    {
+      "id": 12345,
+      "name": "Project 12345",
+      "address": "Blk 3, Everton Park, #12-69, Singapore 080003"
+    }
+  ]
+}

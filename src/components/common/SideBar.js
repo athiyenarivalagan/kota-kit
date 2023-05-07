@@ -14,12 +14,10 @@ const SideBar = ({ menu }) => {
         collapsedWidth={0}
         trigger={null}
         width={240}
-        // style={{
-        //   position: "fixed",
-        //   height: "100%",
-        //   // left: 0,
-        //   // top: 0
-        // }}
+        style={{
+          // position: "fixed",
+          height: "100%"
+        }}
       >
         <Space 
           direction="vertical" 

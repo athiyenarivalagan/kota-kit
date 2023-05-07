@@ -1,13 +1,24 @@
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData } from "react-router-dom"
+import { getProject } from "../services/projects"
 
 export async function loader({ params }) {
-    return params.projectId;
-}
+    const project = await getProject(params.projectId)
+    // return { project }
+    return project
+  }
+
 const Project = () => {
-    const projects = useLoaderData()
-    console.log(projects)
+    const project = useLoaderData()
+    console.log(project)
+
+
     return (
-        <div>This is the Project {projects}</div>
+        <div>
+            <p>This is the page for Project {project.id}</p>
+            <p>{project.name}</p>
+            <p>{'['}{project.address}{']'}</p>
+        </div>
+
     )
 }
 
