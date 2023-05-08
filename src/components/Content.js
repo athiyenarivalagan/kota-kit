@@ -1,6 +1,7 @@
-import { Layout, Col, Row, Collapse, Divider, Space } from "antd"
-import ProgressBar from './ProgressBar'
-import UserProfiles from './UserProfiles'
+// import { Layout, Col, Row, Collapse, Divider, Space } from "antd"
+import { Layout, Col, Row } from "antd"
+import ProgressBar from "./ProgressBar"
+import UserProfiles from "./UserProfiles"
 import TextInput from "./TextInput"
 
 const Content = ({ project }) => {
@@ -28,8 +29,8 @@ const Content = ({ project }) => {
          justify="center" 
          align="middle" 
          style={{ marginBottom: "24px" }}>
-            {/* <h3 style={{textAlign: "center"}}>{project.name}</h3>
-            <h4>{'['}{project.address}{']'}</h4> */}
+            <h3 style={{textAlign: "center"}}>{project.name}</h3>
+            <h4>{'['}{project.address}{']'}</h4>
         </Row>
 
         <hr 
@@ -45,7 +46,7 @@ const Content = ({ project }) => {
         <Row className="align-right">
           <UserProfiles style={{marginBottom: "24"}} />
         </Row>
-         {/* <TextInput /> */}
+         <TextInput />
       </Layout.Content>
   )
 }
