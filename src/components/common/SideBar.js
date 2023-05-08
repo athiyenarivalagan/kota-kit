@@ -23,7 +23,7 @@ const SideBar = ({ projects }) => {
         <Space 
           direction="vertical" 
           size="middle"
-          style={{ paddingTop: '20px', paddingBottom: '20px' }}
+          style={{ paddingTop: '20px' }}
         >
           <UserImage />
           <h1>Projects</h1>

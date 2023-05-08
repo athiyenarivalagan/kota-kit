@@ -1,6 +1,8 @@
-import { Drawer, Button, Space, Col, Row, Avatar, Affix } from 'antd'
-import { MenuOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons'
-import { useState } from 'react'
+// import { Drawer, Button, Space, Col, Row, Avatar, Affix } from 'antd'
+// import { MenuOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons'
+// import { useState } from 'react'
+import { Col, Row, Affix } from 'antd'
+import { HomeOutlined } from '@ant-design/icons'
 
 import SearchInput from '../SearchInput'
 import CreateProject from '../CreateProject'

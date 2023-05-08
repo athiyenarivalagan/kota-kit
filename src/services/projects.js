@@ -1,6 +1,6 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/api/projects'
-// const baseUrl = '/api/projects'
+// const baseUrl = 'http://localhost:3001/api/projects'
+const baseUrl = 'http://localhost:3001/projects'
 
 export async function getProjects() {
   const res = await axios.get(baseUrl)
