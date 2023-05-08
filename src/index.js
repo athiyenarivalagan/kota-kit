@@ -4,8 +4,8 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
-import Dashboard, {loader as dashboardLoader} from './routes/dashboard'
-import Project, {loader as projectLoader} from './routes/project'
+import Dashboard, {loader as dashboardLoader} from './routes/Dashboard'
+import Project, {loader as projectLoader} from './routes/Project'
 import "./index.css"
 import ErrorPage from './error-page'
 
