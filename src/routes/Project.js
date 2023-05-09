@@ -3,9 +3,10 @@ import { useLoaderData } from "react-router-dom"
 import { getProject } from "../services/projects"
 
 import { Layout, Col, Row, Collapse, Divider, Space } from "antd"
+import { CheckCircleTwoTone } from '@ant-design/icons'
 import ProgressBar from '../components/ProgressBar'
 import UserProfiles from '../components/UserProfiles'
-// import TextInput from "../components/TextInput"
+import TextInput from "../components/TextInput"
 
 
 export async function loader({ params }) {
@@ -70,7 +71,13 @@ const Project = () => {
                     }}>
                     <Row>
                         <div>
-                            <Divider orientation="left"><h2>Spatial Planning</h2></Divider>
+                            <Divider orientation="left">
+                                <Space>
+                                    <CheckCircleTwoTone />
+                                    <h3>Spatial Planning</h3>
+                                </Space>
+                            </Divider>
+
                                 <Collapse size="small">
                                     <Panel header="Select sub-tasks" style={{ width: "780px" }}>
                                         <Space direction="vertical">
@@ -82,7 +89,13 @@ const Project = () => {
                                     </Panel>
                                 </Collapse>
 
-                            <Divider orientation="left"><h2>Concept Board & Materials</h2></Divider>
+                            <Divider orientation="left">
+                                <Space>
+                                    <CheckCircleTwoTone />
+                                    <h2>Concept Board & Materials</h2>
+                                </Space>
+                            </Divider>
+
                                 <Collapse size="small">
                                     <Panel header="Select sub-tasks">
                                         <Space direction="vertical">
@@ -92,7 +105,13 @@ const Project = () => {
                                     </Panel>
                                 </Collapse>
                                 
-                            <Divider orientation="left"><h2>Drawings</h2></Divider>
+                            <Divider orientation="left">
+                                <Space>
+                                    <CheckCircleTwoTone />
+                                    <h2>Drawings</h2>
+                                </Space>
+                            </Divider>
+
                                 <Collapse size="small">
                                     <Panel header="Select sub-tasks">
                                         <Space direction="vertical">
@@ -104,7 +123,7 @@ const Project = () => {
                         </div>              
                     </Row>
                 </div>
-                {/* <TextInput /> */}
+                <TextInput />
             </Layout.Content>
         </>
     )
