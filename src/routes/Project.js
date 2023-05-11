@@ -22,6 +22,7 @@ const Project = () => {
     return (
         <>
             <Layout.Content className="layout-content">
+                {/* Progress Bar */}
                 <Row
                     gutter={{
                         xs: 8,
@@ -37,7 +38,8 @@ const Project = () => {
                         <ProgressBar />
                     </Col>
                 </Row>
-
+                
+                {/* Project Details */}
                 <Row
                     justify="center"
                     align="middle"
@@ -58,19 +60,25 @@ const Project = () => {
                         marginBottom: "24px"
                     }} />
 
+                {/* User Profiles */}
                 <Row className="align-right">
                     <UserProfiles style={{ marginBottom: "24" }} />
                 </Row>
-
+                
+                {/* Main Sections */}
                 <div 
                     style={{
                     display: "flex",
                     justifyContent: "center", 
                     alignItems: "center", 
                     flexDirection: "column",
-                    }}>
+                }}>
+                
+                
                     <Row>
                         <div>
+                            {/* Spatial Planning Section */}
+
                             <Divider orientation="left">
                                 <Space>
                                     <CheckCircleTwoTone />
@@ -89,6 +97,7 @@ const Project = () => {
                                     </Panel>
                                 </Collapse>
 
+                            {/* Concept Boards & Materials */}
                             <Divider orientation="left">
                                 <Space>
                                     <CheckCircleTwoTone />
@@ -104,7 +113,8 @@ const Project = () => {
                                         </Space>
                                     </Panel>
                                 </Collapse>
-                                
+
+                            {/* Drawings */} 
                             <Divider orientation="left">
                                 <Space>
                                     <CheckCircleTwoTone />
