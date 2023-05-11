@@ -14,7 +14,7 @@ export async function loader({ params }) {
     return project
 }
 
-const Project = () => {
+const ProjectOverview = () => {
     const project = useLoaderData()
     const { Panel } = Collapse
 
@@ -139,4 +139,4 @@ const Project = () => {
     )
 }
 
-export default Project
+export default ProjectOverview

@@ -5,7 +5,7 @@ import {
     RouterProvider,
   } from "react-router-dom";
 import Dashboard, {loader as dashboardLoader} from './routes/Dashboard'
-import Project, {loader as projectLoader} from './routes/Project'
+import ProjectOverview, {loader as projectLoader} from './routes/ProjectOverview'
 import ErrorPage from "./error-page"
 import SpatialLayout from "./routes/SpatialLayout"
 import Furnishing from "./routes/Furnishing"
@@ -30,21 +30,22 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ":projectId",
-                element: <Project />,
+                element: <ProjectOverview />,
                 loader: projectLoader 
             },
+            // Athiyen: should the right path be /project/:projectId/spatial-layout or /project:projectId/spatial-layout?
             {
-                path: "/project:projectId/spatial-layout",
+                path: "/project/:projectId/spatial-layout",
                 element: <SpatialLayout />,
                 loader: projectLoader 
             },
             {
-                path: "/project:projectId/furnishing",
+                path: "/project/:projectId/furnishing",
                 element: <Furnishing />,
                 loader: projectLoader 
             },
             {
-                path: "/project:projectId/appliances",
+                path: "/project/:projectId/appliances",
                 element: <Appliances />,
                 loader: projectLoader 
             },
@@ -54,22 +55,22 @@ const router = createBrowserRouter([
                 loader: projectLoader 
             },
             {
-                path: "/project:projectId/concept-board",
+                path: "/project/:projectId/concept-board",
                 element: <ConceptBoard />,
                 loader: projectLoader 
             },
             {
-                path: "/project:projectId/materials",
+                path: "/project/:projectId/materials",
                 element: <Materials />,
                 loader: projectLoader 
             },
             {
-                path: "/project:projectId/2d-carpentry-detail-drawings",
+                path: "/project/:projectId/2d-carpentry-detail-drawings",
                 element: <TwoDCarpentryDetailDrawings />,
                 loader: projectLoader 
             },
             {
-                path: "/project:projectId/3d-renderings",
+                path: "/project/:projectId/3d-renderings",
                 element: <ThreeDRenderings />,
                 loader: projectLoader 
             }
