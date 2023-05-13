@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet, useLoaderData } from "react-router-dom"
+import { Outlet, useLoaderData, useNavigation } from "react-router-dom"
 import { getProjects } from "../services/projects"
 import { Layout, theme } from 'antd'
 import AppHeader from "../components/common/AppHeader"
@@ -14,6 +14,7 @@ export async function loader() {
 
 const Dashboard = () => {
     const { projects } = useLoaderData()
+    const navigation = useNavigation()
     const {
         token: { colorBgContainer },
       } = theme.useToken();
@@ -39,7 +40,14 @@ const Dashboard = () => {
                   background: colorBgContainer,
                 }}
               >
+              {/* <div
+                id="detail"
+                className={
+                  navigation.state === "loading" ? "loading" : ""
+                }
+              > */}
                 <Outlet />
+                {/* </div> */}
               </Content>
             </Layout>
           </Layout>

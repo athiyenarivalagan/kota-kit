@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
-import { Layout, Space } from "antd"
+import { NavLink } from "react-router-dom"
+import { Layout } from "antd"
 
-import Notifications from "../Notifications"
 import UserImage from "../UserImage"
-import Messages from "../Messages"
+// import Notifications from "../Notifications"
+// import Messages from "../Messages"
 
 const SideBar = ({ projects }) => {
 
@@ -17,40 +17,48 @@ const SideBar = ({ projects }) => {
         width={240}
         style={{
           position: "fixed",
-          height: "100%"
+          height: "100%",
+          paddingTop: '20px'
         }}
       >
-        <Space 
-          direction="vertical" 
-          size="middle"
-          style={{ paddingTop: '20px' }}
-        >
-          <UserImage />
-          <h1>Projects</h1>
+        <UserImage />
+        <h1>Projects</h1>
+        <nav>
           {projects.length ? (
-                projects.map(project => (
-                    <div key={project.id}>
-                        <Link to={`/project/${project.id}`}>
-                            {project.name ? (
-                            <>
-                              { project.name }
-                            </>
-                            ) : (
-                            <i>Undefined Project</i>
-                            )}{" "}
-                        </Link>
-                    </div>
-                ))
-            ) : (
+            <ul>
+              {projects.map(project => (
+                <li key={project.id}>
+                  <NavLink
+                    to={`/project/${project.id}`}
+                    className={({ isActive, isPending }) =>
+                      isActive
+                        ? "active"
+                        : isPending
+                        ? "pending"
+                        : ""
+                    }
+                  >
+                    {project.name ? (
+                    <>
+                      { project.name }
+                    </>
+                    ) : (
+                    <i>Undefined Project</i>
+                    )}{" "}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          ) : (
             <p>
                 <i>No projects</i>
             </p>
         )}
-          <Notifications />
-          <Messages />
-        </Space>
-      </Layout.Sider>
-    )
+        {/* <Notifications /> */}
+        {/* <Messages /> */}
+      </nav>
+    </Layout.Sider>
+  )
 }
 
 export default SideBar

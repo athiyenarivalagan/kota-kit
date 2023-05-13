@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { Layout } from 'antd'
 import axios from 'axios'
-import './App.css'
+// import './App.css'
 import 'antd/dist/reset.css'
 
 import AppHeader from './components/common/AppHeader' 
@@ -49,9 +49,7 @@ const App = () => {
           <Layout>
             <SideBar menu={Menu} /> 
             <Content project={displayedProject} />
-            {/* <Content projects={projects} /> */}
           </Layout>
-          {/* <Footer /> */}
         </Layout>
     </div>
   )

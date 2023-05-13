@@ -2,7 +2,7 @@ const Messages = () => {
     
     return (
         <div>
-            <a href='/'>Messages</a>
+            <a href='/messages'>Messages</a>
         </div>
     )
 }

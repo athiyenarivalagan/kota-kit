@@ -5,7 +5,7 @@ const Notifications = () => {
     return (
         <div>
             <Badge dot>
-                <a href='/'>Notifications</a>
+                <a href='/notifications'>Notifications</a>
             </Badge>
         </div>
     )
