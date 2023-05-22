@@ -18,7 +18,7 @@ const ProjectOverview = () => {
     const project = useLoaderData()
     const { Panel } = Collapse
 
-
+    
     return (
         <>
             <Layout.Content className="layout-content">

@@ -1,9 +1,10 @@
-import { Breadcrumb, Steps, Space } from 'antd'
-import { CheckCircleTwoTone } from '@ant-design/icons'
+import { Breadcrumb, Steps, Space, Button, message, Upload } from 'antd'
+import { CheckCircleTwoTone, UploadOutlined } from '@ant-design/icons'
+import { useState } from 'react'
+import { useLoaderData } from "react-router-dom"
 
 
 const SpatialLayout = () => {
-
     return (
         <>
             <Breadcrumb
@@ -77,8 +78,111 @@ const SpatialLayout = () => {
                     With a drawn-to-scale HDB floorplan, you will be able to start planning how your spatial layout is going to be. To do so, draw the furn
                 </li>
             </ol>
+            <UploadFiles />
         </>
     )
 }
 
 export default SpatialLayout
+
+const UploadFiles = () => {
+
+    const [sentFiles, setSentFiles] = useState([])
+    const [form, setForm] = useState({
+        clientName: '', 
+        emailAddress:'', 
+        file: new Blob()
+    })
+
+    const project = useLoaderData()
+
+    const props = {
+        name: 'file',
+        headers: {
+          authorization: 'authorization-text',
+        },
+        beforeUpload: (file) => {
+            setForm({
+                ...form,
+                file
+            })
+            return false
+        }
+      };
+    
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const answer = window.confirm("Confirm submitting this to client?")
+        const formData = new FormData()
+        formData.append("name", form.file.name)
+        formData.append("projectId", project.id)
+        formData.append("file", form.file)
+        formData.append("dateUploaded", new Date())
+        for (var key of formData.entries()) {
+            console.log(key[0] + ', ' + key[1]);
+        }
+
+        if (answer) {
+            fetch('http://localhost:3001/api/spatialLayouts', {
+                method: 'POST', 
+                body: formData
+            })
+            .then((res) => res.json())
+            .then(res => {
+                console.log("This is reached from within fetch then")
+                setSentFiles([
+                    ...sentFiles,
+                    res
+                ])
+            })
+            .catch(err => err.message)
+        }
+        else {
+            console.log("Do nothing. ")
+        }
+    }
+
+    const handleFormChange = (e) => {
+        e.preventDefault();
+        setForm({
+            ...form,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    return(
+        <>
+            <div style={{fontSize:"3em"}}> ✅ Upload and send spatial layout for signing </div>
+            <div>Send new document:</div>
+            <Upload {...props}>
+                <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            </Upload>
+
+            <form onSubmit={handleSubmit} encType="multipart/form-data">
+                <label htmlFor="clientName">Client's name: </label>
+                <input type="text" name="clientName" value={form.clientName} onChange={handleFormChange}/>
+                <label htmlFor="emailAddress">Email address: </label>
+                <input type="text" name="emailAddress" value={form.emailAddress} onChange={handleFormChange}/>
+                <button type="submit">Send document via Docusign</button>
+            </form>
+            <SentFiles sentFiles={sentFiles} />
+        </>
+    )
+}
+
+const SentFiles = ( {sentFiles} ) => {
+    if (!sentFiles.length) {
+        return null
+    }
+    return(
+        <>
+            <div>Files sent:</div>
+            {sentFiles.map(item => {
+                return(
+                    <div><a href={item.file.url}>{item.name}</a> | Date sent: {item.dateUploaded.slice(0,10)}</div>
+                    
+                )
+            })}
+        </>
+    )
+}
