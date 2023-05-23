@@ -1,4 +1,4 @@
-const Footer = () => {
+const FooterBar = () => {
     return (
         <div
             style={{
@@ -17,4 +17,4 @@ const Footer = () => {
     )   
 }
 
-export default Footer
+export default FooterBar
