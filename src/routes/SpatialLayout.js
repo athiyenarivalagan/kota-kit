@@ -37,6 +37,7 @@ const SpatialLayout = () => {
                 ]}
             />
 
+            <h1><u>Spatial Layout</u></h1>
             <Space>
                 <CheckCircleTwoTone />
                 <h3>Guidelines & Checklist</h3>

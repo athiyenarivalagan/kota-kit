@@ -14,7 +14,7 @@ const SideBar = ({ projects }) => {
         theme="light"
         collapsedWidth={0}
         trigger={null}
-        width={240}
+        width={260}
         style={{
           position: "fixed",
           height: "100%",

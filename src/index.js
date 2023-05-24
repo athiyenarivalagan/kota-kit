@@ -4,8 +4,13 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
-import Dashboard, {loader as dashboardLoader} from './routes/Dashboard'
-import ProjectOverview, {loader as projectLoader} from './routes/ProjectOverview'
+import Dashboard, {
+    loader as dashboardLoader,
+    action as rootAction,
+} from "./routes/Dashboard"
+import ProjectOverview, {
+    loader as projectLoader
+} from "./routes/ProjectOverview"
 import ErrorPage from "./error-page"
 import SpatialLayout from "./routes/SpatialLayout"
 import Furnishing from "./routes/Furnishing"
@@ -16,6 +21,7 @@ import ThreeDRenderings from "./routes/ThreeDRenderings"
 import Appliances from "./routes/Appliances"
 import Electrical from "./routes/Electrical"
 import "./index.css"
+import Index from "./routes/Index"
 
 const router = createBrowserRouter([
     {
@@ -27,7 +33,11 @@ const router = createBrowserRouter([
         path: "/project",
         element: <Dashboard />,
         loader: dashboardLoader,
+        action: rootAction,
         children: [
+            {
+                index: true, element: <Index />
+            },
             {
                 path: ":projectId",
                 element: <ProjectOverview />,

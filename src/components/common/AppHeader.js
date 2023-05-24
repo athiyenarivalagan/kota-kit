@@ -1,5 +1,4 @@
 // import { Drawer, Button, Space, Col, Row, Avatar, Affix } from 'antd'
-// import { MenuOutlined, UserOutlined, HomeOutlined } from '@ant-design/icons'
 // import { useState } from 'react'
 import { Col, Row, Affix } from 'antd'
 import { HomeOutlined } from '@ant-design/icons'
@@ -9,13 +8,12 @@ import CreateProject from '../CreateProject'
 // import Notifications from '../Notifications'
 // import Messages from '../Messages'
 
-const AppHeader = ({ menu }) => {
+const AppHeader = ({ defaultValue }) => {
     // const[visible, setVisible] = useState(false)
 
     return (
         <Affix>
             <header className="container">
-                {/* refactor Drawer as a separate component */}
                 {/* <Drawer 
                 title="Projects"
                 width={240}
@@ -57,7 +55,7 @@ const AppHeader = ({ menu }) => {
                     <Col xs={18} sm={18} md={19} lg={20}>
                         <div style={{ display: 'flex' }}>
                         <div style={{ marginRight: '10px' }}>
-                            <SearchInput />
+                            <SearchInput defaultValue={defaultValue} />
                         </div>
                             <CreateProject />
                         </div>
