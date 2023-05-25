@@ -15,6 +15,7 @@ const UploadFiles = () => {
 
     const project = useLoaderData()
 
+    // For Upload component: prevents the default auto-upload & sets form state. 
     const props = {
         name: 'file',
         headers: {
@@ -31,15 +32,14 @@ const UploadFiles = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault()
+
         const answer = window.confirm("Confirm submitting this to client?")
         const formData = new FormData()
+
         formData.append("name", form.file.name)
         formData.append("projectId", project.id)
         formData.append("file", form.file)
         formData.append("dateUploaded", new Date())
-        for (var key of formData.entries()) {
-            console.log(key[0] + ', ' + key[1]);
-        }
 
         if (answer) {
             fetch('http://localhost:3001/api/spatialLayouts', {
@@ -48,7 +48,8 @@ const UploadFiles = () => {
             })
             .then((res) => res.json())
             .then(res => {
-                console.log("This is reached from within fetch then")
+                // Expects a response object from BE that is returned from the document being saved in MongoDB,
+                // which contains the following fields: file.url, name, dateUploaded. 
                 setSentFiles([
                     ...sentFiles,
                     res
