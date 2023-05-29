@@ -1,17 +1,19 @@
 import { useState } from 'react'
 import { Button, Upload } from 'antd'
-import SentFiles from './SentFiles'
+import SentFile from './SentFile'
 import { useLoaderData } from "react-router-dom"
 import { UploadOutlined } from '@ant-design/icons'
+import axios from 'axios'
 
 const UploadFiles = () => {
 
-    const [sentFiles, setSentFiles] = useState([])
     const [form, setForm] = useState({
         clientName: '', 
         emailAddress:'', 
         file: new Blob()
     })
+
+    const [sentFile, setSentFile] = useState(null)
 
     const project = useLoaderData()
 
@@ -30,7 +32,7 @@ const UploadFiles = () => {
         }
       };
     
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         const answer = window.confirm("Confirm submitting this to client?")
@@ -39,26 +41,44 @@ const UploadFiles = () => {
         formData.append("name", form.file.name)
         formData.append("projectId", project.id)
         formData.append("file", form.file)
-        formData.append("dateUploaded", new Date())
 
-        if (answer) {
-            fetch('http://localhost:3001/api/spatialLayouts', {
-                method: 'POST', 
-                body: formData
-            })
-            .then((res) => res.json())
-            .then(res => {
-                // Expects a response object from BE that is returned from the document being saved in MongoDB,
-                // which contains the following fields: file.url, name, dateUploaded. 
-                setSentFiles([
-                    ...sentFiles,
-                    res
-                ])
-            })
-            .catch(err => err.message)
-        }
-        else {
+        if (!answer) {
             console.log("Do nothing. ")
+            return
+        }
+        
+        try {
+            const res = await axios.post('http://localhost:3001/api/spatialLayouts/uploadToS3', formData)
+            if (res.data.success === true) {
+                setSentFile({
+                    name: res.data.name,
+                    file: res.data.file,
+                    isSent: false
+                })
+                const dataToSend = {
+                    ...res.data,
+                    signerEmail: form.emailAddress,
+                    signerName: form.clientName,
+                    ccEmail: 'leibingguo@gmail.com',
+                    ccName: 'Leibing'
+                }
+                try {
+                    const docusignRes = await axios.post('http://localhost:3001/api/spatialLayouts/sendViaDocusign', dataToSend)
+                    setSentFile({
+                        name: res.data.name,
+                        file: res.data.file,
+                        isSent: true,
+                        dateSent: docusignRes.data.dateSent
+                    })
+                } catch (e) {
+                    console.log(e)
+                }
+                
+                
+            }
+
+        } catch (err) {
+            console.log(err)
         }
     }
 
@@ -85,7 +105,7 @@ const UploadFiles = () => {
                 <input type="text" name="emailAddress" value={form.emailAddress} onChange={handleFormChange}/>
                 <button type="submit">Send document via Docusign</button>
             </form>
-            <SentFiles sentFiles={sentFiles} />
+            <SentFile file={sentFile}/>
         </>
     )
 }
