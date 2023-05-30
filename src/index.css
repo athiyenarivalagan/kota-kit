@@ -180,3 +180,9 @@ body {
     transition: opacity 200ms;
     transition-delay: 200ms;
   }
+
+  .documentRow {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+  }

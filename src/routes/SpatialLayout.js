@@ -1,7 +1,8 @@
 import { Breadcrumb, Steps } from 'antd'
 import { breadCrumbItems, stepsItems } from '../components/pages/spatialLayout/spatialLayoutHelpers'
 import Guidelines from '../components/pages/spatialLayout/Guidelines'
-import UploadFiles from '../components/pages/spatialLayout/UploadFiles'
+import UploadAndSend from '../components/pages/spatialLayout/UploadAndSend'
+import Documents from '../components/pages/spatialLayout/Documents'
 
 
 const SpatialLayout = () => {
@@ -10,7 +11,8 @@ const SpatialLayout = () => {
             <Breadcrumb items={breadCrumbItems}/>
             <Steps progressDot current={1} items={stepsItems}/>
             <Guidelines />
-            <UploadFiles />
+            <UploadAndSend />
+            <Documents />
         </>
     )
 }

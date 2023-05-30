@@ -5,7 +5,7 @@ import { useLoaderData } from "react-router-dom"
 import { UploadOutlined } from '@ant-design/icons'
 import axios from 'axios'
 
-const UploadFiles = () => {
+const UploadAndSend = () => {
 
     const [form, setForm] = useState({
         clientName: '', 
@@ -110,4 +110,4 @@ const UploadFiles = () => {
     )
 }
 
-export default UploadFiles
+export default UploadAndSend
