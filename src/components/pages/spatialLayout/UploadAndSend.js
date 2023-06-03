@@ -1,9 +1,13 @@
 import { useState } from 'react'
-import { Button, Upload } from 'antd'
+import { Button, Upload, Space } from 'antd'
 import SentFile from './SentFile'
 import { useLoaderData } from "react-router-dom"
-import { UploadOutlined } from '@ant-design/icons'
+import { UploadOutlined, CheckCircleTwoTone } from '@ant-design/icons'
 import axios from 'axios'
+
+const CustomCheckCircleIcon = () => (
+    <CheckCircleTwoTone style={{ fontSize: '28px' }} />
+)
 
 const UploadAndSend = () => {
 
@@ -92,7 +96,12 @@ const UploadAndSend = () => {
 
     return(
         <>
-            <div style={{fontSize:"3em"}}> ✅ Upload and send spatial layout for signing </div>
+            <Space>
+                {/* <CheckCircleTwoTone /> */}
+                <CustomCheckCircleIcon />
+                <h2>Upload and send spatial layout for signing</h2>
+            </Space>
+            {/* <div style={{fontSize:"3em"}}> ✅ Upload and send spatial layout for signing </div> */}
             <div>Send new document:</div>
             <Upload {...props}>
                 <Button icon={<UploadOutlined />}>Click to Upload</Button>

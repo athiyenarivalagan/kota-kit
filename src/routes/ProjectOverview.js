@@ -18,6 +18,10 @@ const ProjectOverview = () => {
     const project = useLoaderData()
     const { Panel } = Collapse
 
+    const CustomCheckCircleIcon = () => (
+        <CheckCircleTwoTone style={{ fontSize: '28px' }} />
+)
+
     
     return (
         <>
@@ -73,16 +77,13 @@ const ProjectOverview = () => {
                     alignItems: "center", 
                     flexDirection: "column",
                 }}>
-                
-                
                     <Row>
                         <div>
                             {/* Spatial Planning Section */}
-
                             <Divider orientation="left">
                                 <Space>
-                                    <CheckCircleTwoTone />
-                                    <h3>Spatial Planning</h3>
+                                    <CustomCheckCircleIcon />
+                                    <h2>Spatial Planning</h2>
                                 </Space>
                             </Divider>
 
@@ -100,8 +101,7 @@ const ProjectOverview = () => {
                             {/* Concept Boards & Materials */}
                             <Divider orientation="left">
                                 <Space>
-                                    <CheckCircleTwoTone />
-                                    <h2>Concept Board & Materials</h2>
+                                    <CustomCheckCircleIcon />                                    <h2>Concept Board & Materials</h2>
                                 </Space>
                             </Divider>
 
@@ -117,8 +117,7 @@ const ProjectOverview = () => {
                             {/* Drawings */} 
                             <Divider orientation="left">
                                 <Space>
-                                    <CheckCircleTwoTone />
-                                    <h2>Drawings</h2>
+                                    <CustomCheckCircleIcon />                                    <h2>Drawings</h2>
                                 </Space>
                             </Divider>
 
@@ -133,7 +132,11 @@ const ProjectOverview = () => {
                         </div>              
                     </Row>
                 </div>
-                <TextInput />
+                <Row>
+                    <Col span={16} offset={4}>
+                        <TextInput />
+                    </Col>    
+                </Row>
             </Layout.Content>
         </>
     )
