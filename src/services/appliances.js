@@ -17,11 +17,12 @@ export async function getAppliance(id) {
 }
 
 export async function updateAppliance(id, newObject) {
+  console.log(id)
   const res = await axios.put(`${baseUrl}/${id}`, newObject)
-  return res.data
+  return res
 }
 
 export async function removeAppliance(id) {
   const res = await axios.delete(`${baseUrl}/${id}`)
-  return res.data
+  return res
 }

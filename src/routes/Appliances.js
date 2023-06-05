@@ -16,7 +16,6 @@ const Appliances = () => {
     useEffect(() => {
       axios.get(`http://localhost:3001/api/appliances/project/${projectId}`)
         .then(res => {
-          console.log(res.data)
           setFetchedData(res.data)
         })
     }, [])
