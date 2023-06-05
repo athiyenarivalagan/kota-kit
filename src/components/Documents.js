@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { Empty } from "antd"
-import '../../../index.css'
+import '../index.css'
 import FetchedDocuments from "./FetchedDocuments"
+import { spatialLayoutDummyData } from "../data/dummyData"
 
 
 const Documents = () => {
     const [spatialLayouts, setSpatialLayouts] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/spatialLayouts')
-            .then(res => {
-                console.log(res.data)
-                setSpatialLayouts(res.data)
-            })
+        setSpatialLayouts(spatialLayoutDummyData)
     }, [])
 
     if (!spatialLayouts.length) {

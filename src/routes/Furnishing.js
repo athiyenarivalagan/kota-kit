@@ -1,6 +1,7 @@
 import { Breadcrumb, Space } from 'antd'
 import { CheckCircleTwoTone } from '@ant-design/icons'
 import UploadAndSend from '../components/UploadAndSend'
+import Documents from '../components/Documents'
 
 
 const Furnishing = () => {
@@ -38,7 +39,7 @@ const Furnishing = () => {
             <Space>
             </Space>
             <UploadAndSend name={"Furnishing Board"}/>
-            
+            <Documents />
         </>
     )
 }    
