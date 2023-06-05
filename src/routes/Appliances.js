@@ -1,65 +1,25 @@
-import { Breadcrumb, Space, Table } from 'antd'
+import { Breadcrumb, Space, Table, Button, Alert } from 'antd'
 import { CheckCircleTwoTone } from '@ant-design/icons'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
+import { Input, Select} from 'antd'
+import '../index.css'
+import { createAppliance } from '../services/appliances'
+import AppliancesTable from '../components/pages/appliances/AppliancesTable'
 
 
 const Appliances = () => {
-    const columns = [
-        {
-          title: 'Fixed Appliances required',
-          dataIndex: 'name',
-          key: 'name',
-        },
-        {
-          title: 'Dimensions',
-          dataIndex: 'age',
-          key: 'age',
-        },
-        {
-          title: 'Item Purchased ?',
-          dataIndex: '',
-          key: 'x',
-          render: () => <a>Send reminder to client</a>,
-        },
-      ]
+    let { projectId } = useParams();
+    const [fetchedData, setFetchedData] = useState([])
 
-      const data = [
-        {
-          key: 1,
-          name: 'Hood',
-          age: 'Input Dimensions',
-          description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.',
-        },
-        {
-          key: 2,
-          name: 'Hob',
-          age: 'Input Dimensions',
-          description: 'My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.',
-        },
-        {
-          key: 3,
-          name: 'Fridge',
-          age: 'Input Dimensions',
-          description: 'This not expandable',
-        },
-        {
-          key: 4,
-          name: 'Oven',
-          age: 'Input Dimensions',
-          description: 'My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.',
-        },
-        {
-          key: 5,
-          name: 'Built in Microwave',
-          age: 'Input Dimensions',
-          description: 'My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.',
-        },
-        {
-          key: 6,
-          name: '',
-          age: '',
-          description: '',
-        },
-      ]
+    useEffect(() => {
+      axios.get(`http://localhost:3001/api/appliances/project/${projectId}`)
+        .then(res => {
+          setFetchedData(res.data)
+        })
+    }, [])
+
 
     return (
         <>
@@ -80,22 +40,7 @@ const Appliances = () => {
                 <h3>Appliances List</h3>
             </Space>
 
-            <Table
-                columns={columns}
-                expandable={{
-                expandedRowRender: (record) => (
-                    <p
-                    style={{
-                        margin: 0,
-                    }}
-                    >
-                    {record.description}
-                    </p>
-                ),
-                rowExpandable: (record) => record.name !== 'Not Expandable',
-                }}
-                dataSource={data}
-            />
+            <AppliancesTable fetchedData={fetchedData} setFetchedData={setFetchedData}/>
         </>
     )
 }

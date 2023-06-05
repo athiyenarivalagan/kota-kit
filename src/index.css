@@ -186,3 +186,21 @@ body {
     width: 400px;
     justify-content: space-between;
   }
+
+  /* Appliances Page */
+  .newApplianceHidden {
+    display: none;
+  }
+
+  .newApplianceMain {
+    border: none;
+  }
+
+  .newApplianceSave {
+    display: flex;
+    gap: 4px;
+  }
+
+  .descriptionField {
+    margin-left: 48px;
+  }
