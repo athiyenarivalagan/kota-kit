@@ -1,9 +1,5 @@
 import { Space } from 'antd'
-import { CheckCircleTwoTone } from '@ant-design/icons'
-
-const CustomCheckCircleIcon = () => (
-    <CheckCircleTwoTone style={{ fontSize: '28px' }} />
-)
+import CustomCheckCircleIcon from '../../CustomCheckCircleIcon'
 
 const Guidelines = () => {
     return (
@@ -118,11 +114,11 @@ const Guidelines = () => {
                     <li>Oven: 56cmW</li>
                     <li>Microwave: 50cmW</li>
                     <li>A Tall Unit: 60cmW</li>
-                    <li>Kitchen Sink: 70-90cm (Choose according to preference) </li>
+                    <li>Kitchen Sink: 70-90cm (Choose according to preference)</li>
                 </ul>
                 <p>When properly done, all future instances may possibly be planned ahead of time.</p>
                 <p>**Additional question to ask: Are you planning to hack the walls to create more space?</p>
-                <p><u>If so, here are some low-downs to take note of:-</u></p>
+                <p><u>If so, here are some low-downs to take note of:</u></p>
                 <ul>
                     <li>No hacking is allowed on all structural beams
                     <li>When hacking walls, your floor will also be affected.</li>

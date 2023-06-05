@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom"
 import { getProject } from "../services/projects"
 
 import { Layout, Col, Row, Collapse, Divider, Space } from "antd"
-import { CheckCircleTwoTone } from '@ant-design/icons'
+import CustomCheckCircleIcon from "../components/CustomCheckCircleIcon"
 import ProgressBar from '../components/ProgressBar'
 import UserProfiles from '../components/UserProfiles'
 import TextInput from "../components/TextInput"
@@ -17,10 +17,6 @@ export async function loader({ params }) {
 const ProjectOverview = () => {
     const project = useLoaderData()
     const { Panel } = Collapse
-
-    const CustomCheckCircleIcon = () => (
-        <CheckCircleTwoTone style={{ fontSize: '28px' }} />
-)
 
     
     return (

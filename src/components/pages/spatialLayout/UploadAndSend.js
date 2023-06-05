@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import { Button, Upload, Space } from 'antd'
+import { Button, Upload, Space, Form, Input, Row, Col } from 'antd'
 import SentFile from './SentFile'
 import { useLoaderData } from "react-router-dom"
-import { UploadOutlined, CheckCircleTwoTone } from '@ant-design/icons'
+import { UploadOutlined, UserOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons'
+import CustomCheckCircleIcon from '../../CustomCheckCircleIcon'
 import axios from 'axios'
 
-const CustomCheckCircleIcon = () => (
-    <CheckCircleTwoTone style={{ fontSize: '28px' }} />
-)
 
 const UploadAndSend = () => {
 
@@ -94,27 +92,63 @@ const UploadAndSend = () => {
         })
     }
 
-    return(
+
+    return (
         <>
             <Space>
-                {/* <CheckCircleTwoTone /> */}
                 <CustomCheckCircleIcon />
-                <h2>Upload and send spatial layout for signing</h2>
+                <h2>Upload And Send Spatial Layout For Signing</h2>
             </Space>
-            {/* <div style={{fontSize:"3em"}}> ✅ Upload and send spatial layout for signing </div> */}
-            <div>Send new document:</div>
-            <Upload {...props}>
-                <Button icon={<UploadOutlined />}>Click to Upload</Button>
-            </Upload>
 
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
-                <label htmlFor="clientName">Client's name: </label>
-                <input type="text" name="clientName" value={form.clientName} onChange={handleFormChange}/>
-                <label htmlFor="emailAddress">Email address: </label>
-                <input type="text" name="emailAddress" value={form.emailAddress} onChange={handleFormChange}/>
-                <button type="submit">Send document via Docusign</button>
-            </form>
-            <SentFile file={sentFile}/>
+            <div style={{ border: '1px solid #ccc', padding: '16px' }}>
+                <h3>Send new document:</h3>
+                <p>Attach new file and details below</p>
+                <Upload {...props}>
+                    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                </Upload>
+
+                <hr 
+                    style={{ 
+                        border: 'none', 
+                        borderTop: '2px solid #ccc', 
+                        margin: '16px 0'
+                     }} 
+                /> 
+
+                <Form 
+                    onSubmit={handleSubmit}
+                    layout='vertical'
+                >
+                    <Form.Item label="Enter client's name & email address" name="Client">
+                        <Space>
+                            <Input
+                                name="clientName"
+                                // prefix={<UserOutlined className="site-form-item-icon" />}
+                                placeholder="Client's Name"
+                                value={form.clientName}
+                                onChange={handleFormChange}
+                                // style={{ flex: 1, marginRight: '8px'}}
+                            />
+
+                            <Input
+                                name="emailAddress"
+                                placeholder='Email Address'
+                                value={form.emailAddress}
+                                onChange={handleFormChange}
+                                // style={{ flex: 1, marginRight: '8px'}}
+                            />
+                        </Space>
+                    </Form.Item>
+
+                    <Form.Item style={{ textAlign: 'right' }}>
+                        <Button type="primary" htmlType="submit">
+                            Send document via Docusign
+                        </Button>
+                    </Form.Item>
+                </Form>
+
+                <SentFile file={sentFile}/>
+            </div>
         </>
     )
 }
