@@ -13,6 +13,7 @@ const SpatialLayout = () => {
                     <Breadcrumb items={breadCrumbItems} />
                 </Col>
             </Row>
+            
             <Row>
                 <Col span={8} offset={2}>
                     <h2>
@@ -20,26 +21,7 @@ const SpatialLayout = () => {
                     </h2>
                 </Col>
             </Row>
-            {/* <Row justify="center" style={{ margin: '20px 0' }}>
-                <Col span={20}>
-                    <Steps progressDot current={1} items={stepsItems} />
-                </Col>
-            </Row>
-            <Row justify="center" style={{ margin: '20px 0' }}>
-                <Col span={20}>
-                    <Guidelines />
-                </Col>
-            </Row>
-            <Row justify="center" style={{ margin: '20px 0' }}>
-                <Col span={20}>
-                    <UploadAndSend />
-                </Col>
-            </Row>
-            <Row justify="center" style={{ margin: '20px 0' }}>
-                <Col span={20}>
-                    <Documents />
-                </Col>
-            </Row>` */}
+            
             <Row justify="center">
                 <Col span={20}>
                     <Space direction="vertical" size={20} style={{ width: '100%' }}>

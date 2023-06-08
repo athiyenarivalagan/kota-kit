@@ -1,5 +1,6 @@
-import { Breadcrumb, Space } from 'antd'
-import { CheckCircleTwoTone } from '@ant-design/icons'
+import { Space, Row, Col, Breadcrumb } from 'antd'
+import Guidelines from '../components/pages/furnishing/Guidelines'
+import breadCrumbItems from '../components/pages/furnishing/furnishingHelpers'
 import UploadAndSend from '../components/UploadAndSend'
 import Documents from '../components/Documents'
 
@@ -7,40 +8,35 @@ import Documents from '../components/Documents'
 const Furnishing = () => {
 
     return (
-        <>
-            <Breadcrumb
-                items={[
-                    {
-                        title: <a href="http://localhost:3000/project/">Spatial Planning</a>,
-                    },
-                    {
-                        title: 'Furnishing Board',
-                    },
-                ]}
-            />
+        <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+            <Row justify="end">
+                <Col span={6}>
+                    <Breadcrumb items={ breadCrumbItems } />
+                </Col>
+            </Row>
 
-            <h1><u>Furnishing Board</u></h1>
-            <Space>
-                <CheckCircleTwoTone />
-                <h3>Guidelines</h3>
-            </Space>
+            <Row>
+                <Col span={8} offset={2}>
+                    <h2>
+                        <u>Furnishing Board</u>
+                    </h2>
+                </Col>
+            </Row>
 
-            <p>
-                When it's time to choose one concept, ask yourself questions to decide
-                which of your concepts works best with the site, your clients, and the
-                story they want to tell. Sometimes this will point you to an obvious
-                choice and sometimes it won't. When it doesn't, do your best to make a
-                choice and go with it.
-            </p>
             <div>
                 {/* Placeholder for copy referencing iTab */}
             </div>
 
-            <Space>
-            </Space>
-            <UploadAndSend name={"Furnishing Board"}/>
-            <Documents />
-        </>
+            <Row justify="center">
+                <Col span={20}>
+                    <Space direction="vertical" size={20} style={{ width: '100%' }}>
+                        <Guidelines />
+                        <UploadAndSend name={"Furnishing Board"} />
+                        <Documents />
+                    </Space>
+                </Col>
+            </Row>
+        </div>
     )
 }    
 

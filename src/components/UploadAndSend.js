@@ -122,25 +122,32 @@ const UploadAndSend = ({ name }) => {
                     layout='vertical'
                 >
                     <Form.Item label="Enter client's name & email address" name="Client">
-                        <Space>
-                            <Input
-                                name="clientName"
-                                // prefix={<UserOutlined className="site-form-item-icon" />}
-                                placeholder="Client's Name"
-                                value={form.clientName}
-                                onChange={handleFormChange}
-                                // style={{ flex: 1, marginRight: '8px'}}
-                            />
+                        <Input
+                            name="clientName"
+                            placeholder="Client's Name"
+                            // prefix={<UserOutlined />}
+                            value={form.clientName}
+                            onChange={handleFormChange}
+                            style={{ 
+                                display: 'inline-block',
+                                width: 'calc(50% - 8px)',
+                                marginRight: '8px',
+                            }}
+                        />
 
-                            <Input
-                                name="emailAddress"
-                                placeholder='Email Address'
-                                value={form.emailAddress}
-                                onChange={handleFormChange}
-                                // style={{ flex: 1, marginRight: '8px'}}
-                            />
-                        </Space>
+                        <Input
+                            name="emailAddress"
+                            placeholder='Email Address'
+                            value={form.emailAddress}
+                            onChange={handleFormChange}
+                            style={{ 
+                                display: 'inline-block',
+                                width: 'calc(50% - 8px)',
+                                marginLeft: '8px'
+                            }}
+                        />
                     </Form.Item>
+
 
                     <Form.Item style={{ textAlign: 'right' }}>
                         <Button type="primary" htmlType="submit" onClick={handleSubmit}>

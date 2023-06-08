@@ -24,7 +24,9 @@ const Documents = () => {
                         <h3>Document Activities</h3>
                     </Col>
                 </Row>
+
                 <hr />
+                
                 <Row justify="center" align="middle">
                     <Col span={8}>
                         <h5 style={{ textAlign: 'center' }}>Last Modified</h5>
