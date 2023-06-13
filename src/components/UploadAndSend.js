@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, Upload, Space, Form, Input, Row, Col } from 'antd'
+import { Button, Upload, Space, Form, Input } from 'antd'
 import SentFile from './SentFile'
 import { useLoaderData } from "react-router-dom"
 import { UploadOutlined, UserOutlined, PlusOutlined, MinusOutlined } from '@ant-design/icons'

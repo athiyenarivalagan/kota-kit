@@ -4,6 +4,7 @@ import { updateSentStatus } from "./pages/spatialLayout/Documents_helper"
 import '../index.css'
 import { Row, Col, Spin } from "antd"
 import { docuSignEnvelopes } from "../data/dummyData"
+import DropdownMenu from './DropdownMenu'
 
 const FetchedDocuments = ({ spatialLayouts, setSpatialLayouts }) => {
 
@@ -24,6 +25,7 @@ const FetchedDocuments = ({ spatialLayouts, setSpatialLayouts }) => {
     }, [])
 
     const documents = (elem) => (
+        
         <>
             {spatialLayouts.map(item =>{
                 return (
@@ -32,20 +34,26 @@ const FetchedDocuments = ({ spatialLayouts, setSpatialLayouts }) => {
                         border: '1px solid #ccc',
                         padding: '16px',
                         marginBottom: '16px',
+                        // display: 'flex',
                      }}>
                         <Row justify="center" align="middle">
-                            <Col span={8} style={{ textAlign: 'center' }}>
+                            <Col span={7} style={{ textAlign: 'center' }}>
                                 <a href={item.file.url}>{item.fileName}</a>
                             </Col>
-                            <Col span={8} style={{ textAlign: 'center' }}>
+                            <Col span={7} offset={1} style={{ textAlign: 'center' }}>
                                 {item.dateSent.slice(0,10)}
                             </Col>
-                            <Col span={8}
+                            <Col 
+                                span={7}
+                                offset={1}
                                 style={{
                                     textAlign: 'center',
                                     color: item.isSigned ? 'green' : 'black'
                                 }}>
                                     {item.isSigned ? "SIGNED": elem}
+                            </Col>
+                            <Col span={1}>
+                                <DropdownMenu />
                             </Col>
                         </Row>
                     </div>
