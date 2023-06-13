@@ -1,0 +1,43 @@
+export const singleDocusignResponse = {
+    data: {
+        "status": "signed",
+        "documentsUri": "/envelopes/3051e94a-c5b0-40e6-ba69-664fc0625f4f/documents",
+        "recipientsUri": "/envelopes/3051e94a-c5b0-40e6-ba69-664fc0625f4f/recipients",
+        "attachmentsUri": "/envelopes/3051e94a-c5b0-40e6-ba69-664fc0625f4f/attachments",
+        "envelopeUri": "/envelopes/3051e94a-c5b0-40e6-ba69-664fc0625f4f",
+        "emailSubject": "Please sign this document set",
+        "envelopeId": "3051e94a-c5b0-40e6-ba69-664fc0625f4f",
+        "signingLocation": "online",
+        "customFieldsUri": "/envelopes/3051e94a-c5b0-40e6-ba69-664fc0625f4f/custom_fields",
+        "notificationUri": "/envelopes/3051e94a-c5b0-40e6-ba69-664fc0625f4f/notification",
+        "enableWetSign": "true",
+        "allowMarkup": "false",
+        "allowReassign": "true",
+        "createdDateTime": "2023-05-29T09:08:13.6700000Z",
+        "lastModifiedDateTime": "2023-05-29T09:08:13.6870000Z",
+        "initialSentDateTime": "2023-05-29T09:08:14.6530000Z",
+        "sentDateTime": "2023-05-29T09:08:14.6530000Z",
+        "statusChangedDateTime": "2023-05-29T09:08:14.6530000Z",
+        "documentsCombinedUri": "/envelopes/3051e94a-c5b0-40e6-ba69-664fc0625f4f/documents/combined",
+        "certificateUri": "/envelopes/3051e94a-c5b0-40e6-ba69-664fc0625f4f/documents/certificate",
+        "templatesUri": "/envelopes/3051e94a-c5b0-40e6-ba69-664fc0625f4f/templates",
+        "expireEnabled": "true",
+        "expireDateTime": "2023-09-26T09:08:14.6530000Z",
+        "expireAfter": "118",
+        "sender": {
+            "userName": "Leibing Guo",
+            "userId": "ab2bafe1-fc13-4751-8c86-d2ff35ee65cc",
+            "accountId": "3e774c09-e79c-4abf-8bed-f2164ae3be15",
+            "email": "leibingguo@gmail.com",
+            "ipAddress": "121.6.74.37"
+        },
+        "purgeState": "unpurged",
+        "envelopeIdStamping": "true",
+        "autoNavigation": "true",
+        "isSignatureProviderEnvelope": "false",
+        "allowComments": "true",
+        "anySigner": null,
+        "envelopeLocation": "current_site",
+        "burnDefaultTabData": "false"
+    }
+}

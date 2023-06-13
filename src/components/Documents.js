@@ -1,56 +1,30 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { Row, Col, Empty } from "antd"
-import '../index.css'
-import FetchedDocuments from "./FetchedDocuments"
-import { spatialLayoutDummyData } from "../data/dummyData"
+import { useState, useEffect } from "react"
+import SentDocuments from "./SentDocuments"
+import { getDocuments } from "../services/documents"
+import SendToClientForm from './SendToClientForm'
 
 
-const Documents = () => {
-    const [spatialLayouts, setSpatialLayouts] = useState([])
+const Documents = ({ backendRouteCategory }) => {
+
+    const [loading, setLoading] = useState(false)
+    const [documents, setDocuments] = useState([])
 
     useEffect(() => {
-        setSpatialLayouts(spatialLayoutDummyData)
+        setLoading(true)
+        getDocuments(backendRouteCategory)
+        .then(res => {
+            setDocuments(res)
+            setLoading(false)
+        })
     }, [])
-
-    if (!spatialLayouts.length) {
-        return(
-            <>
-                <hr></hr>
-                <h1> Document Activities </h1>
-                <Empty />
-            </>
-        )
-    }
-
+    
     return(
         <>
-            <Row justify="center" align="middle">
-                <Col>
-                    <h3>Document Activities</h3>
-                </Col>
-            </Row>
-
-            <hr />
-
-            <Row justify="center" align="middle">
-                <Col span={8}>
-                    <h5 style={{ textAlign: 'center' }}>Last Modified</h5>
-                </Col>
-                <Col span={8}>
-                    <h5 style={{ textAlign: 'center' }}>Date</h5>
-                </Col>
-                <Col span={8}>
-                    <h5 style={{ textAlign: 'center' }}>Status</h5>
-                </Col>
-            </Row>
-            <FetchedDocuments 
-                spatialLayouts={spatialLayouts} 
-                setSpatialLayouts={setSpatialLayouts}
-            />
+            <SendToClientForm />
+            <SentDocuments documents={documents} loading={loading} backendRouteCategory={backendRouteCategory}/>
+            
         </>
     )
 }
 
 export default Documents
-

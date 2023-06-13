@@ -18,7 +18,7 @@ const FetchedDocuments = ({ spatialLayouts, setSpatialLayouts }) => {
             envelopeIds: envelopeIds
         }
         setIsLoading(true)
-        axios.post('http://localhost:3001/api/spatialLayouts/checkEnvelopeStatus', dataForSending)
+        axios.post('http://localhost:3001/api/spatialLayouts/checkEnvelopeListStatus', dataForSending)
         .then(res => {
             setSpatialLayouts(updateSentStatus(spatialLayouts,res.data.envelopes))
             setIsLoading(false)

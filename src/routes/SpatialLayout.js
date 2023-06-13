@@ -1,8 +1,7 @@
 import { Breadcrumb, Steps, Col, Row, Space } from 'antd'
 import { breadCrumbItems, stepsItems } from '../components/pages/spatialLayout/spatialLayoutHelpers'
 import Guidelines from '../components/pages/spatialLayout/Guidelines'
-import UploadAndSend from '../components/pages/spatialLayout/UploadAndSend'
-import Documents from '../components/pages/spatialLayout/Documents'
+import Documents from '../components/Documents'
 
 
 const SpatialLayout = () => {
@@ -27,8 +26,7 @@ const SpatialLayout = () => {
                     <Space direction="vertical" size={20} style={{ width: '100%' }}>
                         <Steps progressDot current={1} items={stepsItems} />
                         <Guidelines />
-                        <UploadAndSend />
-                        <Documents />
+                        <Documents backendRouteCategory={'spatialLayouts'}/>
                     </Space>
                 </Col>
             </Row>
