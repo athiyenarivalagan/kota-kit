@@ -21,7 +21,7 @@ export const spatialLayoutDummyData = [
         "isSent": true,
         "dateSent": "2023-05-29T08:24:51.5000000Z",
         "envelopeId": "b78540c9-95b4-415e-b8ad-730b426caecd",
-        "isSigned": true,
+        "isSigned": false,
         "isFinal": false,
         "id": "647461549647e8c4eaa0f46e"
     },
