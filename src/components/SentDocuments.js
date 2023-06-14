@@ -6,6 +6,7 @@ import FetchedDocuments from "./FetchedDocuments"
 import { spatialLayoutDummyData } from "../data/dummyData"
 import { checkDocusignStatus } from "../services/docusign"
 import { updateDbToSigned } from "../services/docusign"
+import DropdownMenu from './DropdownMenu'
 
 
 const SentDocuments = ({ documents, loading, backendRouteCategory}) => {
@@ -32,14 +33,17 @@ const SentDocuments = ({ documents, loading, backendRouteCategory}) => {
             
             {/* Documents Header */}
             <Row justify="center" align="middle">
-                <Col span={8}>
+                <Col span={7}>
                     <h5 style={{ textAlign: 'center' }}>Last Modified</h5>
                 </Col>
-                <Col span={8}>
+                <Col span={7} offset={1}>
                     <h5 style={{ textAlign: 'center' }}>Date</h5>
                 </Col>
-                <Col span={8}>
+                <Col span={7}>
                     <h5 style={{ textAlign: 'center' }}>Status</h5>
+                </Col>
+                <Col span={1}>
+                    <h5 style={{ textAlign: 'center' }}></h5>
                 </Col>
             </Row>
 
@@ -54,18 +58,21 @@ const SentDocuments = ({ documents, loading, backendRouteCategory}) => {
                                 marginBottom: '16px',
                             }}>
                                 <Row justify="center" align="middle">
-                                    <Col span={8} style={{ textAlign: 'center' }}>
+                                    <Col span={7} style={{ textAlign: 'center' }}>
                                         <a href={document.file.url}>{document.fileName}</a>
                                     </Col>
-                                    <Col span={8} style={{ textAlign: 'center' }}>
+                                    <Col span={7} offset={1} style={{ textAlign: 'center' }}>
                                         {document.dateSent.slice(0,10)}
                                     </Col>
-                                    <Col span={8}
+                                    <Col span={7}
                                         style={{
                                             textAlign: 'center',
                                             color: document.isSigned ? 'green' : 'black'
                                         }}>
                                             {document.isSigned ? "SIGNED" : <Signed document={document} backendRouteCategory={backendRouteCategory} />}
+                                    </Col>
+                                    <Col span={1}>
+                                        <DropdownMenu />
                                     </Col>
                                 </Row>
                             </div>
