@@ -32,3 +32,15 @@ export const updateDbToSigned = async (backendRouteCategory, documentId) => {
         console.log(`Error in changing isSigned field for ${backendRouteCategory} document ${documentId} to true`)
     }
 }
+
+export const sendViaDocusign = async (dataToSend) => {
+    try {
+        const res = await axios.post(baseUrl + '/api/docusign/sendViaDocusign', dataToSend)
+        if (res.status !== 200) {
+            Error(`Problems sending email to client via Docusign.`)
+        }
+        return res 
+    } catch(error) {
+        console.log(error)
+    }
+}

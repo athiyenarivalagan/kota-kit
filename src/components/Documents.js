@@ -8,6 +8,7 @@ const Documents = ({ backendRouteCategory }) => {
 
     const [loading, setLoading] = useState(false)
     const [documents, setDocuments] = useState([])
+    const [newDocument, setNewDocument] = useState(null)
 
     useEffect(() => {
         setLoading(true)
@@ -16,13 +17,21 @@ const Documents = ({ backendRouteCategory }) => {
             setDocuments(res)
             setLoading(false)
         })
-    }, [])
+    }, [backendRouteCategory])
     
     return(
         <>
-            <SendToClientForm />
-            <SentDocuments documents={documents} loading={loading} backendRouteCategory={backendRouteCategory}/>
-            
+            <SendToClientForm 
+                backendRouteCategory={backendRouteCategory} 
+                setNewDocument={setNewDocument}
+            />
+
+            <SentDocuments 
+                documents={documents} 
+                newDocument={newDocument} 
+                loading={loading} 
+                backendRouteCategory={backendRouteCategory}
+            />
         </>
     )
 }

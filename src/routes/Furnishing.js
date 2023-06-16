@@ -1,7 +1,6 @@
 import { Space, Row, Col, Breadcrumb } from 'antd'
 import Guidelines from '../components/pages/furnishing/Guidelines'
 import breadCrumbItems from '../components/pages/furnishing/furnishingHelpers'
-import UploadAndSend from '../components/UploadAndSend'
 import Documents from '../components/Documents'
 
 
@@ -31,8 +30,7 @@ const Furnishing = () => {
                 <Col span={20}>
                     <Space direction="vertical" size={20} style={{ width: '100%' }}>
                         <Guidelines />
-                        <UploadAndSend name={"Furnishing Board"} />
-                        <Documents />
+                        <Documents backendRouteCategory={'furnishings'}/>
                     </Space>
                 </Col>
             </Row>
