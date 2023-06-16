@@ -3,7 +3,7 @@ import Guidelines from '../components/pages/furnishing/Guidelines'
 import breadCrumbItems from '../components/pages/furnishing/furnishingHelpers'
 import Documents from '../components/Documents'
 
-const Materials = () => {
+const ElevationDrawings = () => {
     return (
         <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
             <Row justify="end">
@@ -15,7 +15,7 @@ const Materials = () => {
             <Row>
                 <Col span={8} offset={2}>
                     <h2>
-                        <u>Material List</u>
+                        <u>Elevation Drawings</u>
                     </h2>
                 </Col>
             </Row>
@@ -28,7 +28,7 @@ const Materials = () => {
                 <Col span={20}>
                     <Space direction="vertical" size={20} style={{ width: '100%' }}>
                         <Guidelines />
-                        <Documents backendRouteCategory={'materials'}/>
+                        <Documents backendRouteCategory={'elevationDrawings'}/>
                     </Space>
                 </Col>
             </Row>
@@ -36,4 +36,4 @@ const Materials = () => {
     )
 }
 
-export default Materials
+export default ElevationDrawings

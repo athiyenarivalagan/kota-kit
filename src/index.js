@@ -16,7 +16,7 @@ import SpatialLayout from "./routes/SpatialLayout"
 import Furnishing from "./routes/Furnishing"
 import ConceptBoard from "./routes/ConceptBoard"
 import Materials from "./routes/Materials"
-import TwoDCarpentryDetailDrawings from "./routes/TwoDCarpentryDetailDrawings"
+import ElevationDrawings from "./routes/ElevationDrawings"
 import ThreeDRenderings from "./routes/ThreeDRenderings"
 import Appliances from "./routes/Appliances"
 import Electrical from "./routes/Electrical"
@@ -75,8 +75,8 @@ const router = createBrowserRouter([
                 loader: projectLoader 
             },
             {
-                path: "/project/:projectId/2d-carpentry-detail-drawings",
-                element: <TwoDCarpentryDetailDrawings />,
+                path: "/project/:projectId/elevation-drawings",
+                element: <ElevationDrawings />,
                 loader: projectLoader 
             },
             {

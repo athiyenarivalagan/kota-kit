@@ -120,7 +120,7 @@ const ProjectOverview = () => {
                                 <Collapse size="small">
                                     <Panel header="Select sub-tasks">
                                         <Space direction="vertical">
-                                            <Link to={`/project/${project.id}/2d-carpentry-detail-drawings`}>2D Carpentry Detail Drawings</Link>
+                                            <Link to={`/project/${project.id}/elevation-drawings`}>Elevation Drawings</Link>
                                             <Link to={`/project/${project.id}/3d-renderings`}>3D Renderings</Link>
                                         </Space>
                                     </Panel>
