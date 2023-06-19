@@ -1,10 +1,12 @@
 import { Row, Col } from 'antd'
+import useMarkdoc from '../hooks/useMarkdoc'
 
 const ThreeDRenderings = () => {
+    const threeDRenderingsContent = useMarkdoc('3dRenderings')
     return (
         <Row justify="center" align="middle" style={{ height: '100vh' }}>
             <Col>
-                <p>This is the 3D Renderings page</p>
+                {threeDRenderingsContent ? threeDRenderingsContent : null}
             </Col>
         </Row>
     )

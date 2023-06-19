@@ -2,8 +2,10 @@ import { Space, Row, Col, Breadcrumb } from 'antd'
 import Guidelines from '../components/pages/furnishing/Guidelines'
 import breadCrumbItems from '../components/pages/furnishing/furnishingHelpers'
 import Documents from '../components/Documents'
+import useMarkdoc from '../hooks/useMarkdoc'
 
 const ElevationDrawings = () => {
+    const elevationDrawingsContent = useMarkdoc('elevationDrawings')
     return (
         <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
             <Row justify="end">
@@ -27,7 +29,7 @@ const ElevationDrawings = () => {
             <Row justify="center">
                 <Col span={20}>
                     <Space direction="vertical" size={20} style={{ width: '100%' }}>
-                        <Guidelines />
+                        {elevationDrawingsContent ? elevationDrawingsContent : null}
                         <Documents backendRouteCategory={'elevationDrawings'}/>
                     </Space>
                 </Col>

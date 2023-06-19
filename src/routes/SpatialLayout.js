@@ -2,9 +2,11 @@ import { Breadcrumb, Steps, Col, Row, Space } from 'antd'
 import { breadCrumbItems, stepsItems } from '../components/pages/spatialLayout/spatialLayoutHelpers'
 import Guidelines from '../components/pages/spatialLayout/Guidelines'
 import Documents from '../components/Documents'
+import useMarkdoc from '../hooks/useMarkdoc'
 
 
 const SpatialLayout = () => {
+    const spatialLayoutContent = useMarkdoc('spatialLayout')
     return (
         <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
             <Row justify="end">
@@ -25,7 +27,7 @@ const SpatialLayout = () => {
                 <Col span={20}>
                     <Space direction="vertical" size={20} style={{ width: '100%' }}>
                         <Steps progressDot current={1} items={stepsItems} />
-                        <Guidelines />
+                        {spatialLayoutContent ? spatialLayoutContent : null}
                         <Documents backendRouteCategory={'spatialLayouts'}/>
                     </Space>
                 </Col>

@@ -1,9 +1,13 @@
 import { Space, Row, Col, Breadcrumb } from 'antd'
-import Guidelines from '../components/pages/furnishing/Guidelines'
 import breadCrumbItems from '../components/pages/furnishing/furnishingHelpers'
 import Documents from '../components/Documents'
+import * as React from "react"
+import useMarkdoc from '../hooks/useMarkdoc';
 
 const Electrical = () => {
+
+    const markDocContent = useMarkdoc('electrical')
+    
     return (
         <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
             <Row justify="end">
@@ -27,7 +31,7 @@ const Electrical = () => {
             <Row justify="center">
                 <Col span={20}>
                     <Space direction="vertical" size={20} style={{ width: '100%' }}>
-                        <Guidelines />
+                        {markDocContent ? markDocContent : null}
                         <Documents backendRouteCategory={'electrical'}/>
                     </Space>
                 </Col>
