@@ -13,13 +13,13 @@ import ProjectOverview, {
 } from "./routes/ProjectOverview"
 import ErrorPage from "./error-page"
 import SpatialLayout from "./routes/SpatialLayout"
-import Furnishing from "./routes/Furnishing"
+import FurnishingBoard from "./routes/FurnishingBoard"
 import ConceptBoard from "./routes/ConceptBoard"
 import Materials from "./routes/Materials"
 import ElevationDrawings from "./routes/ElevationDrawings"
 import ThreeDRenderings from "./routes/ThreeDRenderings"
 import Appliances from "./routes/Appliances"
-import Electrical from "./routes/Electrical"
+import ElectricalPlan from "./routes/ElectricalPlan"
 import "./index.css"
 import Index from "./routes/Index"
 
@@ -50,8 +50,8 @@ const router = createBrowserRouter([
                 loader: projectLoader 
             },
             {
-                path: "/project/:projectId/furnishing",
-                element: <Furnishing />,
+                path: "/project/:projectId/furnishing-board",
+                element: <FurnishingBoard />,
                 loader: projectLoader 
             },
             {
@@ -60,8 +60,8 @@ const router = createBrowserRouter([
                 loader: projectLoader 
             },
             {
-                path: "/project:projectId/electrical",
-                element: <Electrical />,
+                path: "/project:projectId/electrical-plan",
+                element: <ElectricalPlan />,
                 loader: projectLoader 
             },
             {

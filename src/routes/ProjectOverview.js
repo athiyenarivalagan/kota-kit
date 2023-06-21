@@ -87,9 +87,9 @@ const ProjectOverview = () => {
                                     <Panel header="Select sub-tasks" style={{ width: "780px" }}>
                                         <Space direction="vertical">
                                             <Link to={`/project/${project.id}/spatial-layout`}>Spatial Layout</Link>
-                                            <Link to={`/project/${project.id}/furnishing`}>Furnishing</Link>
+                                            <Link to={`/project/${project.id}/furnishing-board`}>Furnishing</Link>
                                             <Link to={`/project/${project.id}/appliances`}>Appliances</Link>
-                                            <Link to={`/project/${project.id}/electrical`}>Electrical</Link>
+                                            <Link to={`/project/${project.id}/electrical-plan`}>Electrical Plans</Link>
                                         </Space>
                                     </Panel>
                                 </Collapse>

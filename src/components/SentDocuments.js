@@ -10,7 +10,7 @@ import DropdownMenu from './DropdownMenu'
 
 const SentDocuments = ({ documents, loading, backendRouteCategory, newDocument}) => {
 
-    if (!documents.length) {
+    if (!documents.length && !newDocument) {
         return(
             <>
                 <hr></hr>

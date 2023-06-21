@@ -4,9 +4,9 @@ import Documents from '../components/Documents'
 import * as React from "react"
 import useMarkdoc from '../hooks/useMarkdoc';
 
-const Electrical = () => {
+const ElectricalPlan = () => {
 
-    const markDocContent = useMarkdoc('electrical')
+    const markDocContent = useMarkdoc('electricalPlan')
     
     return (
         <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
@@ -32,7 +32,7 @@ const Electrical = () => {
                 <Col span={20}>
                     <Space direction="vertical" size={20} style={{ width: '100%' }}>
                         {markDocContent ? markDocContent : null}
-                        <Documents backendRouteCategory={'electrical'}/>
+                        <Documents backendRouteCategory={'electricalPlans'}/>
                     </Space>
                 </Col>
             </Row>
@@ -40,4 +40,4 @@ const Electrical = () => {
     )
 }
 
-export default Electrical
+export default ElectricalPlan

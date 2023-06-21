@@ -4,7 +4,7 @@ import breadCrumbItems from '../components/pages/furnishing/furnishingHelpers'
 import Documents from '../components/Documents'
 import useMarkdoc from '../hooks/useMarkdoc'
 
-const Furnishing = () => {
+const FurnishingBoard = () => {
     const furnishingContent = useMarkdoc('furnishing')
     return (
         <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
@@ -30,7 +30,7 @@ const Furnishing = () => {
                 <Col span={20}>
                     <Space direction="vertical" size={20} style={{ width: '100%' }}>
                         {furnishingContent ? furnishingContent : null}
-                        <Documents backendRouteCategory={'furnishings'}/>
+                        <Documents backendRouteCategory={'furnishingBoards'}/>
                     </Space>
                 </Col>
             </Row>
@@ -39,4 +39,4 @@ const Furnishing = () => {
 }    
 
 
-export default Furnishing
+export default FurnishingBoard
