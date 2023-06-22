@@ -1,38 +1,30 @@
-import { Breadcrumb, Steps, Col, Row, Space } from 'antd'
+import { Steps } from 'antd'
 import { breadCrumbItems, stepsItems } from '../components/pages/spatialLayout/spatialLayoutHelpers'
-import Guidelines from '../components/pages/spatialLayout/Guidelines'
-import Documents from '../components/Documents'
 import useMarkdoc from '../hooks/useMarkdoc'
-
+import SharedPageLayout from '../SharedPageLayout'  
 
 const SpatialLayout = () => {
     const spatialLayoutContent = useMarkdoc('spatialLayout')
+
+    const mainContent = () => {
+        return (
+            <>
+                <Steps progressDot current={1} items={stepsItems} />
+                { spatialLayoutContent ? spatialLayoutContent : null }
+            </>
+            
+        )
+    }
+
     return (
-        <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
-            <Row justify="end">
-                <Col span={6}>
-                    <Breadcrumb items={breadCrumbItems} />
-                </Col>
-            </Row>
-            
-            <Row>
-                <Col span={8} offset={2}>
-                    <h2>
-                        <u>Spatial Layout</u>
-                    </h2>
-                </Col>
-            </Row>
-            
-            <Row justify="center">
-                <Col span={20}>
-                    <Space direction="vertical" size={20} style={{ width: '100%' }}>
-                        <Steps progressDot current={1} items={stepsItems} />
-                        {spatialLayoutContent ? spatialLayoutContent : null}
-                        <Documents backendRouteCategory={'spatialLayouts'}/>
-                    </Space>
-                </Col>
-            </Row>
-        </div>
+        <>
+            <SharedPageLayout 
+                breadCrumbItems={ breadCrumbItems }
+                header={ <u>Spatial Layout</u> } 
+                categoryTitle={ 'spatialLayout' }
+                mainContent={ mainContent() } 
+            />
+        </>
     )
 }
 

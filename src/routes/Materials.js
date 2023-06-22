@@ -1,40 +1,24 @@
-import { Space, Row, Col, Breadcrumb } from 'antd'
-import Guidelines from '../components/pages/furnishing/Guidelines'
-import breadCrumbItems from '../components/pages/furnishing/furnishingHelpers'
-import Documents from '../components/Documents'
+import { breadCrumbItems } from '../components/pages/conceptBoard.js/conceptBoardHelpers'
 import useMarkdoc from '../hooks/useMarkdoc'
+import SharedPageLayout from '../SharedPageLayout'  
 
 const Materials = () => {
     const materialsContent = useMarkdoc('materials')
+
+    const mainContent = () => {
+        return materialsContent ? materialsContent : null
+
+    }
+
     return (
-        <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
-            <Row justify="end">
-                <Col span={6}>
-                    <Breadcrumb items={ breadCrumbItems } />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col span={8} offset={2}>
-                    <h2>
-                        <u>Material List</u>
-                    </h2>
-                </Col>
-            </Row>
-
-            <div>
-                {/* Placeholder for copy referencing iTab */}
-            </div>
-
-            <Row justify="center">
-                <Col span={20}>
-                    <Space direction="vertical" size={20} style={{ width: '100%' }}>
-                        {materialsContent ? materialsContent : null}
-                        <Documents backendRouteCategory={'materials'}/>
-                    </Space>
-                </Col>
-            </Row>
-        </div>
+        <>
+            <SharedPageLayout 
+                breadCrumbItems={ breadCrumbItems }
+                header={ <u>Material List</u> } 
+                categoryTitle={ 'materials' }
+                mainContent={ mainContent() } 
+            />
+        </>
     )
 }
 

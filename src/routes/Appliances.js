@@ -1,13 +1,12 @@
-import { Breadcrumb, Space, Table, Button, Alert } from 'antd'
-import { CheckCircleTwoTone } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { Input, Select} from 'antd'
+// import { Input, Select} from 'antd'
 import '../index.css'
-import { createAppliance } from '../services/appliances'
+// import { createAppliance } from '../services/appliances'
 import AppliancesTable from '../components/pages/appliances/AppliancesTable'
-
+import breadCrumbItems from '../components/pages/appliances/appliancesHelpers'
+import SharedPageLayout from '../SharedPageLayout'  
 
 const Appliances = () => {
     let { projectId } = useParams();
@@ -20,27 +19,23 @@ const Appliances = () => {
         })
     }, [])
 
+    const mainContent =() => {
+        return (
+            <>
+                <AppliancesTable fetchedData={fetchedData} setFetchedData={setFetchedData}/>
+                {/* {furnishingContent ? furnishingContent : null} */}
+            </>
+        )
+    }
 
     return (
         <>
-            <Breadcrumb
-                items={[
-                    {
-                        title: <a href="http://localhost:3000/project/">Spatial Planning</a>,
-                    },
-                    {
-                        title: 'Appliances List',
-                    },
-                ]}
+            <SharedPageLayout 
+                breadCrumbItems={ breadCrumbItems }
+                header={ <u>Appliances List</u> } 
+                categoryTitle={ 'spatialLayout' }
+                mainContent={ mainContent() } 
             />
-
-            <h1><u>Appliances List</u></h1>
-            <Space>
-                <CheckCircleTwoTone />
-                <h3>Appliances List</h3>
-            </Space>
-
-            <AppliancesTable fetchedData={fetchedData} setFetchedData={setFetchedData}/>
         </>
     )
 }
