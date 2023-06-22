@@ -4,7 +4,7 @@ import { Col, Row, Affix } from 'antd'
 import { HomeOutlined } from '@ant-design/icons'
 
 import SearchInput from '../SearchInput'
-import CreateProject from '../CreateProject'
+import CreateProjectButton from '../CreateProjectButton'
 // import Notifications from '../Notifications'
 // import Messages from '../Messages'
 
@@ -34,9 +34,9 @@ const AppHeader = ({ defaultValue }) => {
                 </Drawer> */}
             
                 <Row 
-                justify="space-between"
-                align="middle"
-                style={{ maxWidth: "1400px", margin: "0 auto" }}
+                    justify="space-between"
+                    align="middle"
+                    style={{ maxWidth: "1400px", margin: "0 auto" }}
                 >
                     {/* <Col xs={2} sm={2} md={0} lg={0}>
                         <Button 
@@ -57,7 +57,7 @@ const AppHeader = ({ defaultValue }) => {
                         <div style={{ marginRight: '10px' }}>
                             <SearchInput defaultValue={defaultValue} />
                         </div>
-                            <CreateProject />
+                            <CreateProjectButton />
                         </div>
                     </Col>
                 </Row>
