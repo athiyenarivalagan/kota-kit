@@ -38,9 +38,9 @@ const SideBar = ({ projects }) => {
                         : ""
                     }
                   >
-                    {project.name ? (
+                    {project.address ? (
                     <>
-                      { project.name }
+                      { project.address }
                     </>
                     ) : (
                     <i>Undefined Project</i>
