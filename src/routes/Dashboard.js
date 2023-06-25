@@ -1,6 +1,6 @@
 import { React, useEffect } from 'react'
 // import { Outlet, useLoaderData, useNavigation } from "react-router-dom"
-import { Outlet, useLoaderData } from "react-router-dom"
+import { Outlet, useLoaderData, redirect } from "react-router-dom"
 import { getProjects, createProject } from "../services/projects"
 import { Layout, theme } from 'antd'
 import AppHeader from "../components/common/AppHeader"
@@ -17,9 +17,12 @@ export async function loader({ request }) {
   return { projects }
 }
 
-export async function action() {
-  const project = await createProject()
-  return { project }
+export async function action({ request, params }) {
+  const formData = await request.formData();
+  const updates = Object.fromEntries(formData);
+  const newProject = await createProject(updates)
+  return redirect(`/project/${newProject.id}`)
+
 }
 
 export default function Dashboard () {
