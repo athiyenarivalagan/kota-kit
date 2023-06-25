@@ -1,5 +1,4 @@
 import { Row, Col, Breadcrumb, Space } from 'antd'
-import { CheckCircleTwoTone } from '@ant-design/icons'
 import Documents from './components/Documents'
 
 const SharedPageLayout = ({ breadCrumbItems, header, categoryTitle, mainContent }) => {
@@ -14,10 +13,7 @@ const SharedPageLayout = ({ breadCrumbItems, header, categoryTitle, mainContent 
 
             <Row>
                 <Col span={8} offset={2}>
-                    <Space>
-                        <CheckCircleTwoTone />
-                        <h2>{ header }</h2>
-                    </Space>
+                    <h2>{ header }</h2>
                 </Col>
             </Row>
 

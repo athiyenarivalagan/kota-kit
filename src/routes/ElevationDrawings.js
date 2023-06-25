@@ -14,7 +14,7 @@ const ElevationDrawings = () => {
             <SharedPageLayout 
                 breadCrumbItems={ breadCrumbItems }
                 header={ <u>Elevation Drawings</u> } 
-                categoryTitle={ 'elevationDrawings' }
+                categoryTitle={ 'Elevation Drawing' }
                 mainContent={ mainContent() } 
             />
         </>

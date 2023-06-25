@@ -1,4 +1,4 @@
-# Guidelines & Checklist
+## Guidelines & Checklist
 
 Things to take note of when planning for spatial planning:
 
@@ -17,7 +17,7 @@ When planning for spatial layout, we see the overview of the house from birds vi
 
 #1. For start, you can use the Standard Furniture Sizes to base all your furniture and appliances at this planning stage until you or your client have confirmed on the specific models and types. [Click here for example](https://www.thespruce.com/standard-furniture-measurements-1391374)
 
-## Custom Made Furnitures: Depths
+# Custom Made Furnitures: Depths
 
 When you or your clients are intending to custom make any furnitures, while the total lengths of how much kitchen youd want fill throughout the kitchen, it is the opposite for its depth. There are a couple of standard custom depth sizes that have already been set by the common industry contractors based on common ergonomics. Below are some examples:
 

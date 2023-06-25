@@ -1,7 +1,14 @@
-import { CheckCircleTwoTone } from '@ant-design/icons'
+import { CheckCircleOutlined } from '@ant-design/icons'
+import { blue } from '@ant-design/colors'
+
 
 const CustomCheckCircleIcon = () => (
-  <CheckCircleTwoTone style={{ fontSize: '28px' }} />
+  <CheckCircleOutlined 
+    style={{ 
+      fontSize: '24px',
+      color: blue.primary,
+    }} 
+  />
 )
 
 export default CustomCheckCircleIcon

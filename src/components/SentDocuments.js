@@ -13,8 +13,12 @@ const SentDocuments = ({ documents, loading, backendRouteCategory, newDocument})
     if (!documents.length && !newDocument) {
         return(
             <>
-                <hr></hr>
-                <h1> Document Activities </h1>
+                <hr />
+                <Row justify="center" align="middle">
+                    <Col>
+                        <h3>Document Activities</h3>
+                    </Col>
+                </Row>
                 <Empty />
             </>
         )

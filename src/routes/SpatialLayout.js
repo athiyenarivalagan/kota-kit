@@ -21,7 +21,7 @@ const SpatialLayout = () => {
             <SharedPageLayout 
                 breadCrumbItems={ breadCrumbItems }
                 header={ <u>Spatial Layout</u> } 
-                categoryTitle={ 'spatialLayout' }
+                categoryTitle={ 'Spatial Layout' }
                 mainContent={ mainContent() } 
             />
         </>

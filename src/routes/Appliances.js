@@ -33,7 +33,7 @@ const Appliances = () => {
             <SharedPageLayout 
                 breadCrumbItems={ breadCrumbItems }
                 header={ <u>Appliances List</u> } 
-                categoryTitle={ 'spatialLayout' }
+                categoryTitle={ 'Appliances List' }
                 mainContent={ mainContent() } 
             />
         </>
