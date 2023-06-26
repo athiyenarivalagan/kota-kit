@@ -13,7 +13,7 @@ const Appliances = () => {
     const [fetchedData, setFetchedData] = useState([])
 
     useEffect(() => {
-      axios.get(`http://localhost:3001/api/appliances/project/${projectId}`)
+      axios.get(`/api/appliances/project/${projectId}`)
         .then(res => {
           setFetchedData(res.data)
         })
@@ -33,7 +33,7 @@ const Appliances = () => {
             <SharedPageLayout 
                 breadCrumbItems={ breadCrumbItems }
                 pageTitle={'Appliances List'} 
-                categoryTitle={ 'spatialLayout' }
+                categoryTitle={ 'appliances' }
                 mainContent={ mainContent() } 
             />
         </>
