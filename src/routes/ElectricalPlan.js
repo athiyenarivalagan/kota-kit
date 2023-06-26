@@ -15,7 +15,7 @@ const ElectricalPlan = () => {
         <>
             <SharedPageLayout 
                 breadCrumbItems={ breadCrumbItems }
-                header={ <u>Electrical Plan</u> } 
+                pageTitle={'Electrical Plan'} 
                 categoryTitle={ 'electricalPlans' }
                 mainContent={ mainContent() } 
             />

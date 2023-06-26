@@ -8,7 +8,7 @@ import { UploadOutlined } from '@ant-design/icons'
 import CustomCheckCircleIcon from './CustomCheckCircleIcon'
 import { props, initializeFormData, initialFormValue } from "./sendToClientForm_helper"
 
-const SendToClientForm = ({ backendRouteCategory, setNewDocument}) => {
+const SendToClientForm = ({ backendRouteCategory, setNewDocument, pageTitle}) => {
 
     const [form, setForm] = useState(initialFormValue)
 
@@ -100,7 +100,7 @@ const SendToClientForm = ({ backendRouteCategory, setNewDocument}) => {
         <>
             <Space>
                 <CustomCheckCircleIcon />
-                <h2>Upload And Send {backendRouteCategory} For Signing</h2>
+                <h2>Upload And Send {pageTitle} For Signing</h2>
             </Space>
 
             <div style={{ border: '1px solid #ccc', padding: '16px' }}>

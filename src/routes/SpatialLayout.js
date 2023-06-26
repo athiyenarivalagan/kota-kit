@@ -8,10 +8,10 @@ const SpatialLayout = () => {
 
     const mainContent = () => {
         return (
-            <>
+            <div className='flex gap-16 flex-col mt-16'>
                 <Steps progressDot current={1} items={stepsItems} />
                 { spatialLayoutContent ? spatialLayoutContent : null }
-            </>
+            </div>
             
         )
     }
@@ -20,7 +20,7 @@ const SpatialLayout = () => {
         <>
             <SharedPageLayout 
                 breadCrumbItems={ breadCrumbItems }
-                header={ <u>Spatial Layout</u> } 
+                pageTitle={'Spatial Layout'} 
                 categoryTitle={ 'spatialLayout' }
                 mainContent={ mainContent() } 
             />

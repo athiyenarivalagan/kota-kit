@@ -32,7 +32,7 @@ const Appliances = () => {
         <>
             <SharedPageLayout 
                 breadCrumbItems={ breadCrumbItems }
-                header={ <u>Appliances List</u> } 
+                pageTitle={'Appliances List'} 
                 categoryTitle={ 'spatialLayout' }
                 mainContent={ mainContent() } 
             />
