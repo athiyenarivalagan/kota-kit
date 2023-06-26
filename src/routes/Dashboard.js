@@ -18,6 +18,7 @@ export async function loader({ request }) {
 export async function action({ request, params }) {
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
+  console.log(updates)
   const newProject = await createProject(updates)
   return redirect(`/project/${newProject.id}`)
 

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { Layout } from "antd"
-
+import { formatProjectNumber } from '../../utils/formatting'
 import UserImage from "../UserImage"
 // import Notifications from "../Notifications"
 // import Messages from "../Messages"
@@ -38,9 +38,9 @@ const SideBar = ({ projects }) => {
                         : ""
                     }
                   >
-                    {project.address ? (
+                    {project.projectNum ? (
                     <>
-                      { project.address }
+                      Project #{ formatProjectNumber(project.projectNum) }
                     </>
                     ) : (
                     <i>Undefined Project</i>

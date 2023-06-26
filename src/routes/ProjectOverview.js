@@ -1,12 +1,10 @@
 import { Link } from "react-router-dom"
 import { useLoaderData } from "react-router-dom"
 import { getProject } from "../services/projects"
-
-import { Layout, Col, Row, Collapse, Divider, Space } from "antd"
+import { Layout, Collapse, Divider, Space } from "antd"
 import CustomCheckCircleIcon from "../components/CustomCheckCircleIcon"
 import ProgressBar from '../components/ProgressBar'
-import UserProfiles from '../components/UserProfiles'
-import TextInput from "../components/TextInput"
+import { formatProjectNumber } from '../utils/formatting'
 
 
 export async function loader({ params }) {
@@ -16,14 +14,18 @@ export async function loader({ params }) {
 
 const ProjectOverview = () => {
     const project = useLoaderData()
-    
 
-    
     return (
-        <>
-            <Layout.Content className="layout-content">
+        <div className="my-12 ">
+            <Layout.Content className="layout-content ">
                 <ProgressBar />
-                <div>{project.name}</div>
+                <div className="flex flex-col items-center gap-2 my-4">
+                    <div className="text-4xl font-serif">Project #{formatProjectNumber(project.projectNum)}</div>
+                    <div className="text-xl font-serif">{project.address}</div>
+                    <div className="font-serif italic">Client: {project.clientName}</div>
+                    <div className="font-serif italic">Start date: {new Date(project.startDate).toLocaleDateString()}</div>
+                </div>
+                <hr className="w-2/3 m-auto text-xl my-8"/>
                 
                 <div className="flex flex-col w-2/3 m-auto">
                     <SectionHeader text={'Spatial Planning'} />
@@ -48,7 +50,7 @@ const ProjectOverview = () => {
                     </SectionDropDown>
                 </div>
             </Layout.Content>
-        </>
+        </div>
     )
 }
 
