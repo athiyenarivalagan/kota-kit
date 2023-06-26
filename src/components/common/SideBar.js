@@ -6,7 +6,6 @@ import UserImage from "../UserImage"
 // import Messages from "../Messages"
 
 const SideBar = ({ projects }) => {
-
     return (
       <Layout.Sider
         className="sidebar"

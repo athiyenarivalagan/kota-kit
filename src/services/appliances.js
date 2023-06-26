@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3001/api/Appliances'
+const baseUrl = '/api/Appliances'
 
 export async function getAppliances() {
   const res = await axios.get(baseUrl)
