@@ -8,9 +8,7 @@ const SearchInput = ({ defaultValue }) => {
     return (
         <Form id="search-form" role="search">
             <Search
-                id="q"
-                placeholder="input search text"
-                // allowClear
+                placeholder="Search by clients, projects, or property name"
                 onSearch={onSearch}
                 defaultValue={ defaultValue }
                 name="q"
@@ -18,7 +16,6 @@ const SearchInput = ({ defaultValue }) => {
                     width: '600px'
                 }}
             />
-        {/* <div id="search-spinner" aria-hidden hidden={true} /> */}
         </Form>
         
     )

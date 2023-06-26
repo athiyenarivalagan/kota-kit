@@ -11,9 +11,7 @@ import SideBar from "../components/common/SideBar"
 const { Content, Sider } = Layout
 
 export async function loader({ request }) {
-  const url = new URL(request.url)
-  const q = url.searchParams.get("q")
-  const projects = await getProjects(q)
+  const projects = await getProjects()
   return { projects }
 }
 
@@ -26,20 +24,17 @@ export async function action({ request, params }) {
 }
 
 export default function Dashboard () {
-  const { projects, q } = useLoaderData()
+  const { projects } = useLoaderData()
   // console.log(projects)
   // const navigation = useNavigation()
   const {
       token: { colorBgContainer },
     } = theme.useToken()
 
-    useEffect(() => {
-      document.getElementById("q").value = q;
-    }, [q]); 
 
   return (
     <Layout>
-      <AppHeader defaultValue={ q } />
+      <AppHeader />
       <Layout>
         <Sider
           width={300}
