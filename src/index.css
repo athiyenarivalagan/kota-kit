@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.debug {
+  border: 1px solid red;
+}
+
 html {
     box-sizing: border-box;
   }
@@ -10,6 +14,7 @@ html {
   *:after {
     box-sizing: inherit;
 }
+
   
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
