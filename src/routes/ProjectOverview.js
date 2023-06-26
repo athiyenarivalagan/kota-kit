@@ -128,11 +128,6 @@ const ProjectOverview = () => {
                         </div>              
                     </Row>
                 </div>
-                <Row>
-                    <Col span={16} offset={4}>
-                        <TextInput />
-                    </Col>    
-                </Row>
             </Layout.Content>
         </>
     )
