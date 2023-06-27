@@ -8,31 +8,13 @@ import CreateProjectButton from '../CreateProjectButton'
 // import Notifications from '../Notifications'
 // import Messages from '../Messages'
 
-const AppHeader = ({ defaultValue }) => {
-    // const[visible, setVisible] = useState(false)
+const AppHeader = ({ projects }) => {
+    // place the useState for the drawer here
 
     return (
         <Affix>
             <header className="container">
-                {/* <Drawer 
-                title="Projects"
-                width={240}
-                placement="left"
-                onClick={ () => setVisible(false) }
-                onClose={ () => setVisible(false) }
-                open={visible}
-                >
-                    <Space 
-                        direction="vertical"
-                        align="center" 
-                    >
-                        <Avatar size={64} icon={<UserOutlined />} />
-                        {menu}
-                        <Notifications />
-                        <Messages />
-                    </Space>
-                </Drawer> */}
-            
+                {/* Place the drawer here  */}
                 <Row 
                     justify="space-between"
                     align="middle"
@@ -55,7 +37,7 @@ const AppHeader = ({ defaultValue }) => {
                     <Col xs={18} sm={18} md={19} lg={20}>
                         <div style={{ display: 'flex' }}>
                         <div style={{ marginRight: '10px' }}>
-                            <SearchInput defaultValue={defaultValue} />
+                            <SearchInput projects={ projects } />
                         </div>
                             <CreateProjectButton />
                         </div>

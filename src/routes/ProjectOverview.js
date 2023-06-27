@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import { useLoaderData } from "react-router-dom"
 import { getProject } from "../services/projects"
-
 import { Layout, Col, Row, Collapse, Divider, Space } from "antd"
 import CustomCheckCircleIcon from "../components/CustomCheckCircleIcon"
 import ProgressBar from '../components/ProgressBar'
