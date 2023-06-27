@@ -1,34 +1,18 @@
 import { Row, Col, Breadcrumb, Space } from 'antd'
 import Documents from './components/Documents'
+import './index.css'
 
-const SharedPageLayout = ({ breadCrumbItems, header, categoryTitle, mainContent }) => {
+const SharedPageLayout = ({ breadCrumbItems, pageTitle, categoryTitle, mainContent }) => {
 
     return (
-        <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
-            <Row justify="end">
-                <Col span={6}>
-                    <Breadcrumb items={ breadCrumbItems } />
-                </Col>
-            </Row>
+        <div className='m-24 flex flex-col gap-8'>
+            <Breadcrumb items={ breadCrumbItems } />
+            <div className='flex'>
+                <h1 className='text-3xl underline'>{ pageTitle }</h1>
+            </div>
 
-            <Row>
-                <Col span={8} offset={2}>
-                    <h2>{ header }</h2>
-                </Col>
-            </Row>
-
-            <Row justify="center">
-                <Col span={20}>
-                    <Space 
-                        direction="vertical" 
-                        size={20} 
-                        style={{ width: '100%' }}
-                    >
-                        { mainContent }
-                        <Documents backendRouteCategory={ categoryTitle }/>
-                    </Space>
-                </Col>
-            </Row>
+            <div className="prose max-w-none">{ mainContent }</div>
+            <Documents backendRouteCategory={ categoryTitle } pageTitle={pageTitle}/>
         </div>
     )
 }

@@ -9,10 +9,7 @@ const SearchInput = ({ projects }) => {
     return (
         <Form id="search-form" role="search">
             <Search
-                id="q"
-                aria-label="Search projects"
-                placeholder="input search text"
-                allowClear
+                placeholder="Search by clients, projects, or property name"
                 onSearch={onSearch}
                 // defaultValue={ q }
                 name="q"
@@ -20,7 +17,6 @@ const SearchInput = ({ projects }) => {
                     width: '600px'
                 }}
             />
-        {/* <div id="search-spinner" aria-hidden hidden={true} /> */}
         </Form>
         
     )

@@ -8,42 +8,20 @@ import CreateProjectButton from '../CreateProjectButton'
 // import Notifications from '../Notifications'
 // import Messages from '../Messages'
 
-const AppHeader = ({ projects }) => {
-    // place the useState for the drawer here
+const AppHeader = ({ defaultValue }) => {
 
     return (
         <Affix>
-            <header className="container">
-                {/* Place the drawer here  */}
-                <Row 
-                    justify="space-between"
-                    align="middle"
-                    style={{ maxWidth: "1400px", margin: "0 auto" }}
-                >
-                    {/* <Col xs={2} sm={2} md={0} lg={0}>
-                        <Button 
-                            className="menu"
-                            type="primary"
-                            icon={<MenuOutlined />}
-                            onClick={ () => setVisible(true) }
-                        />
-                    </Col> */}
-                    <Col xs={4} sm={4} md={5} lg={4} style={{padding: 0}}>
-                        <HomeOutlined />
-                        <a href='/' className='logo'>
-                        KOTAKIT
-                        </a>
-                    </Col>
-                    <Col xs={18} sm={18} md={19} lg={20}>
-                        <div style={{ display: 'flex' }}>
-                        <div style={{ marginRight: '10px' }}>
-                            <SearchInput projects={ projects } />
-                        </div>
-                            <CreateProjectButton />
-                        </div>
-                    </Col>
-                </Row>
-            </header>
+            <div className='flex bg-white p-4 border-b border-black'>
+                <div className='flex w-64 justify-center items-center'>
+                    <div><a href='/' className='text-3xl'>KOTAKIT</a></div>
+                </div>
+                <div className='flex items-center mx-16 gap-24'>
+                    <SearchInput />
+                    <CreateProjectButton />
+                </div>
+                    
+            </div>
         </Affix>
     )
 }

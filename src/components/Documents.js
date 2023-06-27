@@ -4,7 +4,7 @@ import { getDocuments } from "../services/documents"
 import SendToClientForm from './SendToClientForm'
 
 
-const Documents = ({ backendRouteCategory }) => {
+const Documents = ({ backendRouteCategory, pageTitle }) => {
 
     const [loading, setLoading] = useState(false)
     const [documents, setDocuments] = useState([])
@@ -24,6 +24,7 @@ const Documents = ({ backendRouteCategory }) => {
             <SendToClientForm 
                 backendRouteCategory={backendRouteCategory} 
                 setNewDocument={setNewDocument}
+                pageTitle={pageTitle}
             />
 
             <SentDocuments 

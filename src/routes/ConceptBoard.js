@@ -13,8 +13,8 @@ const ConceptBoard = () => {
         <>
             <SharedPageLayout 
                 breadCrumbItems={ breadCrumbItems }
-                header={ <u>Concept Board</u> } 
-                categoryTitle={ 'Concept Board' }
+                header={'Concept Board'} 
+                categoryTitle={ 'ConceptBoards' }
                 mainContent={ mainContent() } 
             />
         </>

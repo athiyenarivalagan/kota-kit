@@ -32,8 +32,8 @@ const Appliances = () => {
         <>
             <SharedPageLayout 
                 breadCrumbItems={ breadCrumbItems }
-                header={ <u>Appliances List</u> } 
-                categoryTitle={ 'Appliances List' }
+                pageTitle={'Appliances List'} 
+                categoryTitle={ 'spatialLayout' }
                 mainContent={ mainContent() } 
             />
         </>

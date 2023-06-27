@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react'
+import { React } from 'react'
 import { Outlet, useLoaderData, redirect, useNavigation } from "react-router-dom"
 import { getProjects, createProject } from "../services/projects"
 import { Layout, theme } from 'antd'
@@ -9,43 +9,30 @@ import SideBar from "../components/common/SideBar"
 const { Content, Sider } = Layout
 
 export async function loader({ request }) {
-  const url = new URL(request.url)
-  const q = url.searchParams.get("q")
-  // console.log(q) // contains the search url
-  console.log(getProjects(q));
-  const projects = await getProjects('kozey junction')
-  return { projects, q }
+  const projects = await getProjects()
+  return { projects }
 }
 
 export async function action({ request, params }) {
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
+  console.log(updates)
   const newProject = await createProject(updates)
   return redirect(`/project/${newProject.id}`)
 }
 
 export default function Dashboard () {
-  const { projects, q } = useLoaderData()
+  const { projects } = useLoaderData()
   const navigation = useNavigation()
-
+  
   const {
       token: { colorBgContainer },
     } = theme.useToken()
 
-    // adding a search spinner
-    // const searching =
-    // navigation.location &&
-    // new URLSearchParams(navigation.location.search).has(
-    //   "q"
-    // )
-
-  useEffect(() => {
-    document.getElementById("q").value = q;
-  }, [q])
 
   return (
     <Layout>
-      <AppHeader projects={ projects } />
+      <AppHeader />
       <Layout>
         <Sider
           width={300}

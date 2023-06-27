@@ -2,13 +2,13 @@ import { uploadToS3 } from "../services/s3"
 import { newRecordInDb } from "../services/documents"
 import { sendViaDocusign } from "../services/docusign"
 import { useState } from 'react'
-import { Button, Upload, Space, Form, Input } from 'antd'
+import { Upload, Space, Form, Input } from 'antd'
 import { useLoaderData } from "react-router-dom"
 import { UploadOutlined } from '@ant-design/icons'
 import CustomCheckCircleIcon from './CustomCheckCircleIcon'
 import { props, initializeFormData, initialFormValue } from "./sendToClientForm_helper"
 
-const SendToClientForm = ({ backendRouteCategory, setNewDocument}) => {
+const SendToClientForm = ({ backendRouteCategory, setNewDocument, pageTitle}) => {
 
     const [form, setForm] = useState(initialFormValue)
 
@@ -100,16 +100,15 @@ const SendToClientForm = ({ backendRouteCategory, setNewDocument}) => {
         <>
             <Space>
                 <CustomCheckCircleIcon />
-                <h2>Upload And Send {backendRouteCategory} For Signing</h2>
+                <h2>Upload And Send {pageTitle} For Signing</h2>
             </Space>
 
-            <div style={{ border: '1px solid #ccc', padding: '16px' }}>
-                <h3>Send new document:</h3>
-                <p>Attach new file and details below</p>
-                <Upload {...uploadProps}>
-                    <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                </Upload>
-
+            <div style={{ border: '1px solid #ccc', padding: '32px' }}>
+                <h3 className="text-lg">Send new document:</h3>
+                    <p className="my-2">Attach new file and details below:</p>
+                    <Upload {...uploadProps}>
+                        <UploadOutlined className="text-2xl"/>
+                    </Upload>
                 <hr 
                     style={{ 
                         border: 'none', 
@@ -151,9 +150,7 @@ const SendToClientForm = ({ backendRouteCategory, setNewDocument}) => {
 
 
                     <Form.Item style={{ textAlign: 'right' }}>
-                        <Button type="primary" htmlType="submit" onClick={handleSubmit}>
-                            Send document via Docusign
-                        </Button>
+                        <Button submit text="Send document via Docusign" onClick={handleSubmit}/>
                     </Form.Item>
                 </Form>
 
@@ -163,3 +160,5 @@ const SendToClientForm = ({ backendRouteCategory, setNewDocument}) => {
 }
 
 export default SendToClientForm
+
+const Button = ({ text, submit, onClick}) => <button className="py-2 px-5 mr-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" type={submit ? 'submit' : ''} onClick={onClick}>{text}</button>
