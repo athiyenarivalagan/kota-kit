@@ -1,5 +1,4 @@
 import { Row, Col, Breadcrumb, Space } from 'antd'
-import { CheckCircleTwoTone } from '@ant-design/icons'
 import Documents from './components/Documents'
 import './index.css'
 

@@ -1,13 +1,11 @@
-import { React, useEffect } from 'react'
-// import { Outlet, useLoaderData, useNavigation } from "react-router-dom"
-import { Outlet, useLoaderData, redirect } from "react-router-dom"
+import { React } from 'react'
+import { Outlet, useLoaderData, redirect, useNavigation } from "react-router-dom"
 import { getProjects, createProject } from "../services/projects"
 import { Layout, theme } from 'antd'
 import AppHeader from "../components/common/AppHeader"
 import SideBar from "../components/common/SideBar"
-// import FooterBar from "../components/common/FooterBar"
+// import { Form } from 'react-router-dom'
 
-// const { Content, Sider, Footer } = Layout
 const { Content, Sider } = Layout
 
 export async function loader({ request }) {
@@ -21,13 +19,12 @@ export async function action({ request, params }) {
   console.log(updates)
   const newProject = await createProject(updates)
   return redirect(`/project/${newProject.id}`)
-
 }
 
 export default function Dashboard () {
   const { projects } = useLoaderData()
-  // console.log(projects)
-  // const navigation = useNavigation()
+  const navigation = useNavigation()
+  
   const {
       token: { colorBgContainer },
     } = theme.useToken()
@@ -53,19 +50,17 @@ export default function Dashboard () {
             background: colorBgContainer,
           }}
         >
-        {/* <div
+        {/* input a react-router-dom Form for testing the search input */}
+        <div
           id="detail"
           className={
             navigation.state === "loading" ? "loading" : ""
           }
-        > */}
+        >
           <Outlet />
-        {/* </div> */}
+        </div>
         </Content>
       </Layout>
-      {/* <Footer>
-        <FooterBar />
-      </Footer> */}
     </Layout>
   )
 }
