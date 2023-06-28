@@ -9,7 +9,8 @@ import Dashboard, {
     action as rootAction,
 } from "./routes/Dashboard"
 import ProjectOverview, {
-    loader as projectLoader
+    loader as projectLoader,
+    action as projectAction
 } from "./routes/ProjectOverview"
 import ErrorPage from "./error-page"
 import SpatialLayout from "./routes/SpatialLayout"
@@ -41,7 +42,8 @@ const router = createBrowserRouter([
             {
                 path: ":projectId",
                 element: <ProjectOverview />,
-                loader: projectLoader 
+                loader: projectLoader,
+                action: projectAction 
             },
             // Athiyen: should the right path be /project/:projectId/spatial-layout or /project:projectId/spatial-layout?
             {
