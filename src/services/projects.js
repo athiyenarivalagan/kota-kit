@@ -21,7 +21,7 @@ export async function updateProject(id, newObject) {
   return res.data
 }
 
-export async function removeProject(id) {
+export async function deleteProject(id) {
   const res = await axios.delete(`${baseUrl}/${id}`)
   return res.data
 }

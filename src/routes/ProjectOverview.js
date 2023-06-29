@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, redirect } from "react-router-dom"
 import { getProject } from "../services/projects"
 import { Layout, Collapse, Divider, Space } from "antd"
 import CustomCheckCircleIcon from "../components/CustomCheckCircleIcon"
@@ -8,6 +8,7 @@ import ProgressBar from '../components/ProgressBar'
 import { formatProjectNumber } from '../utils/formatting'
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons"
 import { Form } from 'react-router-dom'
+import { updateProject, deleteProject } from "../services/projects"
 
 
 export async function loader({ params }) {
@@ -16,10 +17,25 @@ export async function loader({ params }) {
 }
 
 export async function action({ request, params }) {
-    const formData = await request.formData();
-    const updates = Object.fromEntries(formData);
-    console.log(updates)
-    return null
+    console.log("This si reached in action")
+    switch (request.method) {
+        case "POST": {
+            const formData = await request.formData();
+            const updates = Object.fromEntries(formData);
+            console.log(updates)
+            const newProject = await updateProject(params.projectId, updates)
+            return null
+        }
+        case "DELETE": {
+            console.log("THis si reached")
+            await deleteProject(params.projectId)
+            return redirect(`/project`)
+        }
+        default: {
+            throw new Response("", { status: 405 });
+        }
+    }
+
   }
 
 const ProjectOverview = () => {
@@ -95,11 +111,15 @@ const ProjectFields = ({ project }) => {
             <>
                 <Form method="post" className='flex flex-col' onSubmit={(() => setEdit(false))}>
                     <div className="flex flex-col items-center gap-2 my-4 w-2/3 m-auto">
-                        <div className="text-4xl font-serif">Project # <Input name='projectNum' defaultValue={project.projectNum}/></div>
-                        <div className="text-xl font-serif"><Input name='address' defaultValue={project.address}/></div>
-                        <div className="font-serif italic">Client: <Input name='clientName' defaultValue={project.clientName}/></div>
-                        <div className="font-serif italic">Start date: <DatePicker name='startDate' defaultValue={project.startDate.slice(0,10)}/></div>
-                        <button type='submit' >Save</button>
+                        <div className="text-lg font-serif w-96 flex gap-2 items-center"><span className="w-28">Project #: </span><Input name='projectNum' defaultValue={project.projectNum}/></div>
+                        <div className="text-lg font-serif w-96 flex gap-2 items-center" ><span className="w-28">Address: </span><Input name='address' defaultValue={project.address} /></div>
+                        <div className="text-lg font-serif w-96 flex gap-2 items-center"><span className="w-28">Client: </span><Input name='clientName' defaultValue={project.clientName}/></div>
+                        <div className="text-lg font-serif w-96 flex gap-2 items-center"><span className="w-28">Start date: </span><DatePicker name='startDate' defaultValue={project.startDate.slice(0,10)}/></div>
+                        <div className="w-96 flex gap-4 justify-end">
+                            <button className="p-2 border-2 rounded-lg" type='submit' >Save</button>
+                            <button className="p-2 border-2 rounded-lg" onClick={() => setEdit(false)} >Cancel</button>
+                        </div>
+                        
                     </div>
                 </Form>
             </>
@@ -115,11 +135,19 @@ const ProjectFields = ({ project }) => {
                 <div className="text-xl font-serif">{project.address}</div>
                 <div className="font-serif italic">Client: {project.clientName}</div>
                 <div className="font-serif italic">Start date: {new Date(project.startDate).toLocaleDateString()}</div>
-                <div className="self-end"><EditOutlined onClick={() => setEdit(!edit)}/> <DeleteOutlined /></div>
+                <div className="flex items-center self-end gap-2">
+                    <EditOutlined onClick={() => setEdit(!edit)}/> 
+                    <div>
+                        <Form method="DELETE" className="">
+                            <input type='image' className="h-4 w-4" src='https://res.cloudinary.com/dl4murstw/image/upload/v1688047296/delete_auccdu.png'></input>
+                        </Form>
+                    </div>
+                    
+                </div>
             </div>
         </>
     )
 }
 
-const Input = ({ name, defaultValue }) => <input defaultValue={defaultValue} name={name} className='bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'/>
+const Input = ({ name, defaultValue, width }) => <input defaultValue={defaultValue} name={name} className={'bg-gray-5 border w-full border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'}/>
 const DatePicker = ({ defaultValue }) => <input defaultValue={defaultValue} name='startDate' type="date" className="bg-gray-50 mb-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
