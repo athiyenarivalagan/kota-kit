@@ -1,12 +1,12 @@
 const About = () => {
     return (
         <>
-            <section>
-                <p>
+            <section className="flex flex-col w-1/2 m-auto">
+                <p className="text-3xl font-semibold">
                     Kotakit is a passion project that was started to
                     provide love and guidance for our fellow interior 
                     designers of all levels of expertise. We understand the 
-                    bustling world of interior design; hence, Kotakit's main 
+                    bustling world of interior design; hence, Kotakit's main&nbsp; 
                     <u>feature is an adequate and holistic step-by-step design 
                     checklist</u>. At each designing stage, we hope to inspire 
                     you to delve deeper and improve the concepts and 
@@ -15,8 +15,9 @@ const About = () => {
                     well-thought-out concepts and proposals.
                 </p>
             </section>
-            <section>
-                <p>
+            <br />
+            <section className="flex flex-col w-1/2 m-auto">
+                <p className="text-lg font-medium">
                     At Kotakit, we hope that your journey with us brings out the best designer in you.
                 </p>
             </section>

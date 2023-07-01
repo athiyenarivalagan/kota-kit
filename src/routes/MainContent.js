@@ -5,10 +5,10 @@ const MainContent = () => {
                 <img src="your-image-url" alt="Your Image" />
             </div>
             <div>
-                <div className="text-6xl font-semibold">
+                <div className="text-6xl text-center font-semibold">
                     Designing homes has never been clearer.
                 </div>
-                <div className="text-xl font-medium my-2">
+                <div className="text-xl text-center font-medium my-2">
                     Use these step-by-step guidelines to start your renovation journey with ease and clarity. Design now!
                 </div>
             </div>
