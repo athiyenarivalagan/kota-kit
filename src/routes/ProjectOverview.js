@@ -65,7 +65,6 @@ const ProjectOverview = () => {
                     </SectionDropDown>
 
                     <SectionHeader text={'Drawings'} />
-
                     <SectionDropDown>
                         <Link to={`/project/${project.id}/elevation-drawings`}>Elevation Drawings</Link>
                         <Link to={`/project/${project.id}/3d-renderings`}>3D Renderings</Link>

@@ -24,11 +24,29 @@ import ElectricalPlan from "./routes/ElectricalPlan"
 import "./index.css"
 import Index from "./routes/Index"
 
+import Main from './routes/Main'
+import MainContent from './routes/MainContent'
+import About from './routes/About'
+import Services from './routes/Services'
+
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <div>This is the placeholder home page. Pls go to /project</div>,
+        element: <Main />,
         errorElement: <ErrorPage />,
+        children: [
+            {
+                index: true, element: <MainContent />
+            },
+            {
+                path: "/About",
+                element: <About />, 
+            },
+            {
+                path: "/Services",
+                element: <Services />, 
+            },
+        ]
     },
     {
         path: "/project",

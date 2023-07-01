@@ -1,14 +1,12 @@
-// import { Drawer, Button, Space, Col, Row, Avatar, Affix } from 'antd'
-// import { useState } from 'react'
-import { Col, Row, Affix } from 'antd'
-import { HomeOutlined } from '@ant-design/icons'
+// import { Col, Row, Affix } from 'antd'
+import { Affix } from 'antd'
 
 import SearchInput from '../SearchInput'
 import CreateProjectButton from '../CreateProjectButton'
 // import Notifications from '../Notifications'
 // import Messages from '../Messages'
 
-const AppHeader = ({ defaultValue }) => {
+const AppHeader = () => {
 
     return (
         <Affix>
@@ -20,7 +18,6 @@ const AppHeader = ({ defaultValue }) => {
                     <SearchInput />
                     <CreateProjectButton />
                 </div>
-                    
             </div>
         </Affix>
     )

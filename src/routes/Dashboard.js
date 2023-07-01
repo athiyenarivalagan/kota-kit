@@ -50,7 +50,6 @@ export default function Dashboard () {
             background: colorBgContainer,
           }}
         >
-        {/* input a react-router-dom Form for testing the search input */}
         <div
           id="detail"
           className={

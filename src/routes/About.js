@@ -1,0 +1,27 @@
+const About = () => {
+    return (
+        <>
+            <section>
+                <p>
+                    Kotakit is a passion project that was started to
+                    provide love and guidance for our fellow interior 
+                    designers of all levels of expertise. We understand the 
+                    bustling world of interior design; hence, Kotakit's main 
+                    <u>feature is an adequate and holistic step-by-step design 
+                    checklist</u>. At each designing stage, we hope to inspire 
+                    you to delve deeper and improve the concepts and 
+                    functionality of your proposals. With this checklist, we 
+                    aspire for our fellow designers to create organized and 
+                    well-thought-out concepts and proposals.
+                </p>
+            </section>
+            <section>
+                <p>
+                    At Kotakit, we hope that your journey with us brings out the best designer in you.
+                </p>
+            </section>
+        </>
+    );
+};
+
+export default About;
