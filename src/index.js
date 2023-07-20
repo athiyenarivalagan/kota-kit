@@ -23,11 +23,11 @@ import Appliances from "./routes/Appliances"
 import ElectricalPlan from "./routes/ElectricalPlan"
 import "./index.css"
 import Index from "./routes/Index"
-
 import Main from './routes/Main'
 import MainContent from './routes/MainContent'
 import About from './routes/About'
 import Services from './routes/Services'
+import Login from './routes/Login';
 
 const router = createBrowserRouter([
     {
@@ -47,6 +47,10 @@ const router = createBrowserRouter([
                 element: <Services />, 
             },
         ]
+    },
+    {
+        path: "/login",
+        element: <Login />
     },
     {
         path: "/project",
