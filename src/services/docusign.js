@@ -1,8 +1,15 @@
 import axios from "axios"
+const token = JSON.parse(localStorage.getItem('user'))?.token 
+
+const auth = {
+    headers: {
+        Authorization:`Bearer ${token}`
+    }
+  }
 
 export const checkDocusignStatus = async (envelopeId) => {
     try {
-        const res = await axios.get(`/api/docusign/checkEnvelopeStatus/${envelopeId}`)
+        const res = await axios.get(`/api/docusign/checkEnvelopeStatus/${envelopeId}`, auth)
         if (res.status !== 200) {
             Error(`Problems fetching docusign status for envelope: ${envelopeId}`)
         }
@@ -21,7 +28,7 @@ export const updateDbToSigned = async (backendRouteCategory, documentId) => {
         const fieldToUpdate = {
             isSigned: true
         }
-        const res = await axios.patch(`/api/${backendRouteCategory}/${documentId}`, fieldToUpdate)
+        const res = await axios.patch(`/api/${backendRouteCategory}/${documentId}`, fieldToUpdate, auth)
         if (res.status === 200) {
             console.log(`isSigned field for ${backendRouteCategory} document ${documentId} set to true.`)
             return res.data
@@ -34,7 +41,7 @@ export const updateDbToSigned = async (backendRouteCategory, documentId) => {
 
 export const sendViaDocusign = async (dataToSend) => {
     try {
-        const res = await axios.post('/api/docusign/sendViaDocusign', dataToSend)
+        const res = await axios.post('/api/docusign/sendViaDocusign', dataToSend, auth)
         if (res.status !== 200) {
             Error(`Problems sending email to client via Docusign.`)
         }

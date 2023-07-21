@@ -64,7 +64,7 @@ const SentDocuments = ({ documents, loading, backendRouteCategory, newDocument})
 
                     {documents.map(document =>{
                         const name = (<a href={document.file.url}>{document.fileName}</a>)
-                        const date = (document.dateSent.slice(0,10))
+                        const date = document.dateSent ? document.dateSent.slice(0,10) : ''
                         const sentStatus = (document.isNew ? "NOT SENT YET"
                                             : document.isSigned ? "SIGNED" 
                                             : <Signed document={document} backendRouteCategory={backendRouteCategory} />)
