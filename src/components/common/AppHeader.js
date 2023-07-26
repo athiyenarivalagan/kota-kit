@@ -5,9 +5,10 @@ import SearchInput from '../SearchInput'
 import CreateProjectButton from '../CreateProjectButton'
 // import Notifications from '../Notifications'
 // import Messages from '../Messages'
+import { useAuth } from '../../hooks/useAuth'
 
 const AppHeader = () => {
-
+    let auth = useAuth();
     return (
         <Affix>
             <div className='flex bg-white p-4 border-b border-black'>
@@ -17,6 +18,13 @@ const AppHeader = () => {
                 <div className='flex items-center mx-16 gap-24'>
                     <SearchInput />
                     <CreateProjectButton />
+                    <button
+                        onClick={() => {
+                        auth.logout();
+                        }}
+                    >
+                        Sign out
+                    </button>
                 </div>
             </div>
         </Affix>

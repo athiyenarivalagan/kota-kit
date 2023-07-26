@@ -1,7 +1,8 @@
 import axios from "axios"
-const token = JSON.parse(localStorage.getItem('user'))?.token 
+let token 
 
 export const uploadToS3 = async (formData) => {
+    token = JSON.parse(localStorage.getItem('user'))?.token 
     try {
         const res = await axios.post(`/api/s3/upload`, formData, {
             headers: {

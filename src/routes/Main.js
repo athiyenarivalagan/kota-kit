@@ -32,7 +32,7 @@ const Main = () => {
                     </Link>
 
                 </li>
-                <li clasNames="mr-3">
+                <li className="mr-3">
                     <a 
                         className="text-black text-xl font-semibold" 
                         href="/Services">SERVICES

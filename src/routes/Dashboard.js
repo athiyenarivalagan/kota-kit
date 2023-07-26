@@ -1,5 +1,5 @@
-import { React } from 'react'
-import { Outlet, useLoaderData, redirect, useNavigation } from "react-router-dom"
+import { React, useState, useEffect } from 'react'
+import { Outlet, useLoaderData, redirect, useNavigation, Navigate } from "react-router-dom"
 import { getProjects, createProject } from "../services/projects"
 import { Layout, theme } from 'antd'
 import AppHeader from "../components/common/AppHeader"
@@ -9,8 +9,14 @@ import SideBar from "../components/common/SideBar"
 const { Content, Sider } = Layout
 
 export async function loader({ request }) {
+  let token = JSON.parse(localStorage.getItem('user'))?.token 
+  if (!token) {
+    redirect('/login')
+    return null
+  }
   const projects = await getProjects()
   return { projects }
+  
 }
 
 export async function action({ request, params }) {
@@ -22,6 +28,16 @@ export async function action({ request, params }) {
 }
 
 export default function Dashboard () {
+  // const [projects, setProjects] = useState([])
+
+  // useEffect(() => {
+  //   getProjects()
+  //     .then(res => {
+  //       console.log(res)
+  //       setProjects(res)
+  //     })
+  // }, [])
+  // console.log("This is reached")
   const { projects } = useLoaderData()
   const navigation = useNavigation()
   

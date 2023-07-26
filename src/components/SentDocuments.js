@@ -59,6 +59,7 @@ const SentDocuments = ({ documents, loading, backendRouteCategory, newDocument})
                         date={(newDocument.isSent ? newDocument.dateSent.slice(0,10) : <Spin />)}
                         sentStatus={(newDocument.isSent ? "DOCUMENT SENT" : <Spin />)}
                         isSigned={newDocument.isSigned}
+                        key={newDocument.id}
                      />
                     : null}
 
@@ -69,7 +70,7 @@ const SentDocuments = ({ documents, loading, backendRouteCategory, newDocument})
                                             : document.isSigned ? "SIGNED" 
                                             : <Signed document={document} backendRouteCategory={backendRouteCategory} />)
                         return (
-                            <DocumentRow name={name} date={date} sentStatus={sentStatus} isSigned={document.isSigned}/>
+                            <DocumentRow name={name} date={date} sentStatus={sentStatus} isSigned={document.isSigned} key={document.id}/>
                         )
                     })}
                 </>)

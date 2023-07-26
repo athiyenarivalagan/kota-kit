@@ -27,86 +27,97 @@ import Main from './routes/Main'
 import MainContent from './routes/MainContent'
 import About from './routes/About'
 import Services from './routes/Services'
-import Login from './routes/Login';
+import Login from './routes/Login'
+import { AuthProvider } from './hooks/useAuth';
+import ProtectedRoute from './routes/ProtectedRoute';
 
 const router = createBrowserRouter([
     {
-        path: "/",
-        element: <Main />,
-        errorElement: <ErrorPage />,
+        element: <AuthProvider />,
         children: [
             {
-                index: true, element: <MainContent />
+                path: "/",
+                element: <Main />,
+                errorElement: <ErrorPage />,
+                children: [
+                    {
+                        index: true, element: <MainContent />
+                    },
+                    {
+                        path: "/about",
+                        element: <About />, 
+                    },
+                    {
+                        path: "/services",
+                        element: <Services />, 
+                    },
+                ]
             },
             {
-                path: "/About",
-                element: <About />, 
+                path: "/login",
+                element: <Login />
             },
             {
-                path: "/Services",
-                element: <Services />, 
-            },
-        ]
-    },
-    {
-        path: "/login",
-        element: <Login />
-    },
-    {
-        path: "/project",
-        element: <Dashboard />,
-        loader: dashboardLoader,
-        action: rootAction,
-        children: [
-            {
-                index: true, element: <Index />
-            },
-            {
-                path: ":projectId",
-                element: <ProjectOverview />,
-                loader: projectLoader,
-                action: projectAction 
-            },
-            // Athiyen: should the right path be /project/:projectId/spatial-layout or /project:projectId/spatial-layout?
-            {
-                path: "/project/:projectId/spatial-layout",
-                element: <SpatialLayout />,
-                loader: projectLoader 
-            },
-            {
-                path: "/project/:projectId/furnishing-board",
-                element: <FurnishingBoard />,
-                loader: projectLoader 
-            },
-            {
-                path: "/project/:projectId/appliances",
-                element: <Appliances />,
-                loader: projectLoader 
-            },
-            {
-                path: "/project:projectId/electrical-plan",
-                element: <ElectricalPlan />,
-                loader: projectLoader 
-            },
-            {
-                path: "/project/:projectId/concept-board",
-                element: <ConceptBoard />,
-                loader: projectLoader 
-            },
-            {
-                path: "/project/:projectId/materials",
-                element: <Materials />,
-                loader: projectLoader 
-            },
-            {
-                path: "/project/:projectId/elevation-drawings",
-                element: <ElevationDrawings />,
-                loader: projectLoader 
-            },
-            {
-                path: "/project/:projectId/3d-renderings",
-                element: <ThreeDRenderings />,
-                loader: projectLoader 
+                path: "/project",
+                element: (
+                    <ProtectedRoute>
+                        <Dashboard />
+                    </ProtectedRoute>
+                ),
+                loader: dashboardLoader,
+                action: rootAction,
+                children: [
+                    {
+                        index: true, element: <Index />
+                    },
+                    {
+                        path: ":projectId",
+                        element: <ProjectOverview />,
+                        loader: projectLoader,
+                        action: projectAction 
+                    },
+                    // Athiyen: should the right path be /project/:projectId/spatial-layout or /project:projectId/spatial-layout?
+                    {
+                        path: "/project/:projectId/spatial-layout",
+                        element: <SpatialLayout />,
+                        loader: projectLoader 
+                    },
+                    {
+                        path: "/project/:projectId/furnishing-board",
+                        element: <FurnishingBoard />,
+                        loader: projectLoader 
+                    },
+                    {
+                        path: "/project/:projectId/appliances",
+                        element: <Appliances />,
+                        loader: projectLoader 
+                    },
+                    {
+                        path: "/project:projectId/electrical-plan",
+                        element: <ElectricalPlan />,
+                        loader: projectLoader 
+                    },
+                    {
+                        path: "/project/:projectId/concept-board",
+                        element: <ConceptBoard />,
+                        loader: projectLoader 
+                    },
+                    {
+                        path: "/project/:projectId/materials",
+                        element: <Materials />,
+                        loader: projectLoader 
+                    },
+                    {
+                        path: "/project/:projectId/elevation-drawings",
+                        element: <ElevationDrawings />,
+                        loader: projectLoader 
+                    },
+                    {
+                        path: "/project/:projectId/3d-renderings",
+                        element: <ThreeDRenderings />,
+                        loader: projectLoader 
+                    }
+                ]
             }
         ]
     }

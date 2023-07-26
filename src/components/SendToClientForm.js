@@ -7,10 +7,14 @@ import { useLoaderData } from "react-router-dom"
 import { UploadOutlined } from '@ant-design/icons'
 import CustomCheckCircleIcon from './CustomCheckCircleIcon'
 import { props, initializeFormData, initialFormValue } from "./sendToClientForm_helper"
+import { useAuth } from "../hooks/useAuth"
 
 const SendToClientForm = ({ backendRouteCategory, setNewDocument, pageTitle}) => {
 
     const [form, setForm] = useState(initialFormValue)
+    const auth = useAuth()
+    const userEmail = auth.user.email
+    const userName = auth.user.name
 
     const project = useLoaderData()
     const uploadProps = props(form, setForm)
@@ -65,8 +69,8 @@ const SendToClientForm = ({ backendRouteCategory, setNewDocument, pageTitle}) =>
                 ...res.data,
                 signerEmail: form.emailAddress,
                 signerName: form.clientName,
-                ccEmail: 'leibingguo@gmail.com',
-                ccName: 'Leibing'
+                ccEmail: userEmail,
+                ccName: userName
             })
 
             if (docusignRes.status !== 200) {

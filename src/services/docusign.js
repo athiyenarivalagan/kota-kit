@@ -1,15 +1,16 @@
 import axios from "axios"
-const token = JSON.parse(localStorage.getItem('user'))?.token 
+let token 
 
-const auth = {
-    headers: {
-        Authorization:`Bearer ${token}`
-    }
-  }
+
 
 export const checkDocusignStatus = async (envelopeId) => {
+    token = JSON.parse(localStorage.getItem('user'))?.token 
     try {
-        const res = await axios.get(`/api/docusign/checkEnvelopeStatus/${envelopeId}`, auth)
+        const res = await axios.get(`/api/docusign/checkEnvelopeStatus/${envelopeId}`, {
+            headers: {
+                Authorization:`Bearer ${token}`
+            }
+          })
         if (res.status !== 200) {
             Error(`Problems fetching docusign status for envelope: ${envelopeId}`)
         }
@@ -24,11 +25,16 @@ export const checkDocusignStatus = async (envelopeId) => {
 }
 
 export const updateDbToSigned = async (backendRouteCategory, documentId) => {
+    token = JSON.parse(localStorage.getItem('user'))?.token 
     try {
         const fieldToUpdate = {
             isSigned: true
         }
-        const res = await axios.patch(`/api/${backendRouteCategory}/${documentId}`, fieldToUpdate, auth)
+        const res = await axios.patch(`/api/${backendRouteCategory}/${documentId}`, fieldToUpdate, {
+            headers: {
+                Authorization:`Bearer ${token}`
+            }
+          })
         if (res.status === 200) {
             console.log(`isSigned field for ${backendRouteCategory} document ${documentId} set to true.`)
             return res.data
@@ -40,8 +46,13 @@ export const updateDbToSigned = async (backendRouteCategory, documentId) => {
 }
 
 export const sendViaDocusign = async (dataToSend) => {
+    token = JSON.parse(localStorage.getItem('user'))?.token 
     try {
-        const res = await axios.post('/api/docusign/sendViaDocusign', dataToSend, auth)
+        const res = await axios.post('/api/docusign/sendViaDocusign', dataToSend, {
+            headers: {
+                Authorization:`Bearer ${token}`
+            }
+          })
         if (res.status !== 200) {
             Error(`Problems sending email to client via Docusign.`)
         }
