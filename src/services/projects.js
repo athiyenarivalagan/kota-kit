@@ -3,8 +3,6 @@ const baseUrl = '/api/projects'
 let token
 
 export async function getProjects() {
-  console.log("This is run in getProjects")
-  console.log("value of token:", token)
   token = JSON.parse(localStorage.getItem('user'))?.token 
   const res = await axios.get(baseUrl, {
       headers: {

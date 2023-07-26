@@ -17,7 +17,6 @@ export async function loader({ params }) {
 }
 
 export async function action({ request, params }) {
-    console.log("This si reached in action")
     switch (request.method) {
         case "POST": {
             const formData = await request.formData();
@@ -27,7 +26,6 @@ export async function action({ request, params }) {
             return null
         }
         case "DELETE": {
-            console.log("THis si reached")
             await deleteProject(params.projectId)
             return redirect(`/project`)
         }
