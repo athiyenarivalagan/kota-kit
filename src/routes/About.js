@@ -1,8 +1,8 @@
 const About = () => {
     return (
         <>
-            <section className="flex flex-col w-1/2 m-auto">
-                <p className="text-3xl font-semibold">
+            <section className="flex flex-col w-1/2 m-auto items-center">
+                <p className="text-3xl font-semibold w-3/4">
                     Kotakit is a passion project that was started to
                     provide love and guidance for our fellow interior 
                     designers of all levels of expertise. We understand the 
