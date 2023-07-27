@@ -10,21 +10,20 @@ const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [invalidLogin, setInvalidLogin] = useState(false)
     
     
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
-            auth.login({email,password}, () => {
-                console.log("Callback reached")
-                console.log("value of from", from)
-                console.log("value of auth.user", auth.user)
+            await auth.login({email,password}, () => {
                 setTimeout(navigate, 0, "/project")
             })
         }
         catch (err) {
-            console.log(err)
+            setInvalidLogin(true)
+            setTimeout(() => setInvalidLogin(false), 2500)
         }
     }
     return(
@@ -35,6 +34,7 @@ const Login = () => {
                     <h2 className="text-3xl mb-8 font-bold">Login</h2>
                     <Input placeholder={'Email'} name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                     <Input placeholder={'Password'} type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    {invalidLogin ? <div className="text-red-500 self-start">*Invalid login credentials</div> : null}
                     <Button text="Login"/>
                 </form>
             </div>

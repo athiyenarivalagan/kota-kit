@@ -10,9 +10,13 @@ export const AuthProvider = ({ children }) => {
 
   // call this function when you want to authenticate the user
   const login = async (credentials, callback) => {
-    const user = await loginService.login(credentials)
-    setUser(user)
-    callback()
+    try {
+      const user = await loginService.login(credentials)
+      setUser(user)
+      callback()
+    } catch (e) {
+        throw e
+    }
   };
 
   // call this function to sign out logged in user
