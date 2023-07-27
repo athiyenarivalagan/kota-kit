@@ -213,3 +213,8 @@ body {
   .descriptionField {
     margin-left: 48px;
   }
+
+  /* Upload */
+  .ant-upload-select {
+    float: right;
+  }

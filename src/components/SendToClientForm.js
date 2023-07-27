@@ -4,7 +4,7 @@ import { sendViaDocusign } from "../services/docusign"
 import { useState } from 'react'
 import { Upload, Space, Form, Input } from 'antd'
 import { useLoaderData } from "react-router-dom"
-import { UploadOutlined } from '@ant-design/icons'
+import { FormOutlined } from '@ant-design/icons'
 import CustomCheckCircleIcon from './CustomCheckCircleIcon'
 import { props, initializeFormData, initialFormValue } from "./sendToClientForm_helper"
 import { useAuth } from "../hooks/useAuth"
@@ -109,10 +109,13 @@ const SendToClientForm = ({ backendRouteCategory, setNewDocument, pageTitle}) =>
 
             <div style={{ border: '1px solid #ccc', padding: '32px' }}>
                 <h3 className="text-lg">Send new document:</h3>
-                    <p className="my-2">Attach new file and details below:</p>
-                    <Upload {...uploadProps}>
-                        <UploadOutlined className="text-2xl"/>
-                    </Upload>
+                    <div className="flex justify-between">
+                        <p className="my-2">Attach new file and details below:</p>
+                        <Upload {...uploadProps} className="w-48">
+                            <FormOutlined className="text-2xl"/>
+                        </Upload>
+                    </div>
+                    
                 <hr 
                     style={{ 
                         border: 'none', 
