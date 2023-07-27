@@ -111,7 +111,7 @@ const ProjectFields = ({ project }) => {
                         <div className="text-lg font-serif w-96 flex gap-2 items-center"><span className="w-28">Project #: </span><Input name='projectNum' defaultValue={project.projectNum}/></div>
                         <div className="text-lg font-serif w-96 flex gap-2 items-center" ><span className="w-28">Address: </span><Input name='address' defaultValue={project.address} /></div>
                         <div className="text-lg font-serif w-96 flex gap-2 items-center"><span className="w-28">Client: </span><Input name='clientName' defaultValue={project.clientName}/></div>
-                        <div className="text-lg font-serif w-96 flex gap-2 items-center"><span className="w-28">Start date: </span><DatePicker name='startDate' defaultValue={project.startDate.slice(0,10)}/></div>
+                        <div className="text-lg font-serif w-96 flex gap-2 items-center"><span className="w-28">Start date: </span><DatePicker name='startDate' defaultValue={project.startDate ? project.startDate.slice(0,10) : null}/></div>
                         <div className="w-96 flex gap-4 justify-end">
                             <button className="p-2 border-2 rounded-lg" type='submit' >Save</button>
                             <button className="p-2 border-2 rounded-lg" onClick={() => setEdit(false)} >Cancel</button>
