@@ -1,3 +1,4 @@
+import { message, Upload } from "antd"
 // For Upload component: prevents the default auto-upload & sets form state.
 export const props = (form, setForm) => ({
     name: 'file',
@@ -5,11 +6,16 @@ export const props = (form, setForm) => ({
       authorization: 'authorization-text',
     },
     beforeUpload: (file) => {
+        const isAllowedType = ['image/png', 'application/pdf', 'image/jpeg'].includes(file.type)
+        if (!isAllowedType) {
+            message.error(`Only PNG, JPEG, or PDF files are allowed.`)
+            return Upload.LIST_IGNORE
+        }
         setForm({
             ...form,
             file
         })
-        return false
+        return false // Default uploading (to action url) stopped if return false. 
     }
   })
 
@@ -24,7 +30,7 @@ export const initializeFormData = (name, projectId, file) => {
 }
 
 export const initialFormValue = {
-    clientName: '', 
-    emailAddress:'', 
-    file: new Blob()
+    clientName: null, 
+    emailAddress: null, 
+    file: null
 }

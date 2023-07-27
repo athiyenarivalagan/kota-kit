@@ -2,12 +2,13 @@ import { uploadToS3 } from "../services/s3"
 import { newRecordInDb } from "../services/documents"
 import { sendViaDocusign } from "../services/docusign"
 import { useState } from 'react'
-import { Upload, Space, Form, Input } from 'antd'
+import { Upload, Space, Form, Input, message } from 'antd'
 import { useLoaderData } from "react-router-dom"
 import { FormOutlined } from '@ant-design/icons'
 import CustomCheckCircleIcon from './CustomCheckCircleIcon'
 import { props, initializeFormData, initialFormValue } from "./sendToClientForm_helper"
 import { useAuth } from "../hooks/useAuth"
+
 
 const SendToClientForm = ({ backendRouteCategory, setNewDocument, pageTitle}) => {
 
@@ -31,6 +32,14 @@ const SendToClientForm = ({ backendRouteCategory, setNewDocument, pageTitle}) =>
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        if(!form.file) {
+            message.error('Please select a file to upload.')
+            return
+        }
+        if(!form.clientName || !form.emailAddress) {
+            message.error('Form fields incomplete.')
+            return
+        }
         const answer = window.confirm("Confirm submitting this to client?")
         
         if (!answer) {
@@ -39,7 +48,9 @@ const SendToClientForm = ({ backendRouteCategory, setNewDocument, pageTitle}) =>
         }
 
         const formData = initializeFormData(form.file.name, project.id, form.file)
-        
+        // for (const value of formData.values()) {
+        //     console.log(value);
+        //   }
         try {
             // Uploads to S3
             const res = await uploadToS3(formData)
@@ -144,6 +155,7 @@ const SendToClientForm = ({ backendRouteCategory, setNewDocument, pageTitle}) =>
 
                         <Input
                             name="emailAddress"
+                            type="email"
                             placeholder='Email Address'
                             value={form.emailAddress}
                             onChange={handleFormChange}
